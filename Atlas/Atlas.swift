@@ -306,8 +306,8 @@ public class Atlas {
                 }
                 retVal = _val as? T
             }
-        case is AtlasJSONMappable.Type:
-            if let _to = (to as? AtlasJSONMappable.Type) {
+        case is AtlasMap.Type:
+            if let _to = (to as? AtlasMap.Type) {
                 do {
                     retVal = try _to.init(json: val) as? T
                 } catch let e {

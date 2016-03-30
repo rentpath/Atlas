@@ -16,9 +16,9 @@
 /// A simple typealias used to make the initializer of RPJSONMappable more descriptive as to the type of object passed in. That is, it is a JSON response which can be either a Dictionary<String, AnyObject> or Array<AnyObject>.
 public typealias JSON = AnyObject
 
-public protocol AtlasJSONMappable {
+public protocol AtlasMap {
     /**
-     
+     u
      converts model to JSON
      
      - Returns: Dictionary with String key and AnyObject Value

@@ -21,7 +21,7 @@ struct User {
     
 }
 
-extension User: AtlasJSONMappable {
+extension User: AtlasMap {
     
     func toJSON() -> [String : AnyObject]? {
         return nil
