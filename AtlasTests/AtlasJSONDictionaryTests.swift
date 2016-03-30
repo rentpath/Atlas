@@ -7,7 +7,11 @@
 //
 
 import XCTest
-@testable import Atlas
+#if os(tvOS)
+    @testable import AtlasTV
+#else
+    @testable import Atlas
+#endif
 
 class AtlasJSONDictionaryTests: XCTestCase {
     

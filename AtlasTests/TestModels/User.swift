@@ -7,8 +7,13 @@
 //
 
 import Foundation
-import Atlas
 
+#if os(tvOS)
+    import AtlasTV
+#else
+    import Atlas
+#endif
+    
 struct User {
     
     let firstName: String?

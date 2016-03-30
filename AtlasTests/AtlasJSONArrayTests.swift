@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Atlas
+@testable import AtlasTV
 
 class AtlasJSONArrayTests: XCTestCase {
 
