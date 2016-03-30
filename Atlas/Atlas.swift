@@ -34,8 +34,8 @@ public class Atlas {
         case let a as [AnyObject]:
             _json = a.filter { $0 != nil && !($0 is NSNull) }
         default:
+            // Any individual object, String, Int, Bool, etc...
             _json = json
-            throw MappingError.NotMappable("Atlas received an object that was not of type Dictionary<String, AnyObject> or Array<AnyObject>. These are the only two root-level objects that can represent JSON.")
         }
     }
     
