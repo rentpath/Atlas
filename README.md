@@ -31,7 +31,7 @@ How It's Used
 ### How It's Used
 The Atlas object is used to convert JSON <-> Model as long as the model conforms to the AtlasMap protocol. 
 
-Working with JSON Object - Dictionary<String: AnyObject>
+Working with JSON Object - `Dictionary<String: AnyObject>`
 ---------
 ```swift
 // Here we are converting a user JSON object to a User model instance
@@ -55,7 +55,7 @@ do {
 }
 ```
 
-Working with JSON Array - Array<AnyObject>
+Working with JSON Array - `Array<AnyObject>`
 ---------
 ```swift
 // Here we are converting an array of user JSON objects to an array of User model instances
