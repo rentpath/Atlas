@@ -14,7 +14,7 @@
 
 import Foundation
 
-extension NSDate {
+public extension NSDate {
     
     private struct Static {
         static var formatter: NSDateFormatter = {
@@ -32,7 +32,7 @@ extension NSDate {
      
      */
     
-    func toRFC3339String() -> String {
+    public func toRFC3339String() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
         return formatter.stringFromDate(self)
@@ -58,7 +58,7 @@ extension NSDate {
      - Returns: String date with pretty format
      
      */
-    func toPrettyString() -> String {
+    public func toPrettyString() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "E MMM dd, yyyy 'at' h:mm a"
         return formatter.stringFromDate(self)
@@ -71,7 +71,7 @@ extension NSDate {
      - Returns: String date with short pretty format
      
      */
-    func toShortPrettyString() -> String {
+    public func toShortPrettyString() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "MM/dd/yy"
         return formatter.stringFromDate(self)
@@ -88,7 +88,7 @@ extension NSDate {
      - Returns: NSDate after converting dateString
      
      */
-    class func dateFromString(dateString: String, withFormat format: String) -> NSDate? {
+    public class func dateFromString(dateString: String, withFormat format: String) -> NSDate? {
         let formatter = Static.formatter
         formatter.dateFormat = format
         return formatter.dateFromString(dateString)
@@ -101,7 +101,7 @@ extension NSDate {
      - Returns: NSDate 
      
      */
-    func beginningOfDay() -> NSDate {
+    public func beginningOfDay() -> NSDate {
         let calendar = NSCalendar.currentCalendar()
         let components = calendar.components([.Year, .Month, .Day], fromDate: self)
         return calendar.dateFromComponents(components)!
@@ -114,7 +114,7 @@ extension NSDate {
      - Returns: NSDate
      
      */
-    func endOfDay() -> NSDate {
+    public func endOfDay() -> NSDate {
         let components = NSDateComponents()
         components.day = 1
         var date = NSCalendar.currentCalendar().dateByAddingComponents(components, toDate: self.beginningOfDay(), options: [])!

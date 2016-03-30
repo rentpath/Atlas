@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-extension Dictionary {
+public extension Dictionary {
     
     /**
      
@@ -21,7 +21,7 @@ extension Dictionary {
      - Returns: Dictionary with null values removed
      
      */
-    func cleaned() -> Dictionary {
+    public func cleaned() -> Dictionary {
         var cleanedDict = [Key: Value]()
         let o = filter({ $0.1 != nil && !($0.1 is NSNull) })
         for val in o {
