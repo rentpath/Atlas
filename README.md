@@ -1,3 +1,5 @@
+![Atlas](https://raw.githubusercontent.com/rentpath/Atlas/master/rentpath_atlas.jpg?token=AA-NdfXBVDgrelm18bcO75eMF7SqVbeYks5XBpK_wA%3D%3D)
+
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 # Atlas
