@@ -1,19 +1,14 @@
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 # Atlas
 An extremely easy-to-use and lightweight JSON mapping library written in Swift.
 
-Installation
-------------
+# Installation
 
 ### Carthage
-To install this libaray via Cathage, just add the following to your `Cartfile`:
+To install this library via Carthage, just add the following to your `Cartfile`:
 ```bash
-github "RentPath/Atlas" ~> 1.0
-```
-
-### CocoaPods
-To install this libaray via CocoaPods, just add the following to your `PodFile`:
-```bash
-pod 'RPCoreKit', '~> 1.0'
+github "rentpath/Atlas" ~> 1.0
 ```
 
 ### Submodule
@@ -22,17 +17,15 @@ To install this library via submodule, just do the following:
 git submodule add git@github.com/rentpath/RPCoreKit
 ```
 
-### Directly inlcude source
+### Directly include source
 Don't! This is not a good idea since it makes updating dependencies much more difficult and time consuming. Use one of the options above.
 
-How It's Used
--------------
+# How It's Used
 
-### How It's Used
-The Atlas object is used to convert JSON <-> Model as long as the model conforms to the AtlasMap protocol. 
+Atlas is used to convert JSON <-> Model as long as the model conforms to the `AtlasMap` protocol.
 
-Working with JSON Object - `Dictionary<String: AnyObject>`
----------
+### Working with a JSON Object
+
 ```swift
 // Here we are converting a user JSON object to a User model instance
 
@@ -55,8 +48,8 @@ do {
 }
 ```
 
-Working with JSON Array - `Array<AnyObject>`
----------
+### Working with a JSON Array
+
 ```swift
 // Here we are converting an array of user JSON objects to an array of User model instances
 
@@ -90,8 +83,7 @@ do {
 }
 ```
 
-Here is what the User model could look like
--------
+### Here is what the User model could look like
 
 ```swift
 import Foundation
@@ -108,11 +100,11 @@ struct User {
 }
 
 extension User: AtlasMap {
-    
+
     func toJSON() -> [String : AnyObject]? {
         return nil
     }
-    
+
     init?(json: JSON) throws {
         do {
             let map = try Atlas(json)
@@ -127,13 +119,13 @@ extension User: AtlasMap {
             throw e
         }
     }
-    
+
 }
 ```
-###Contributing
+# Contributing
 
-Getting Started
----------------
+### Workflow
+
 1. Fork this repo
 2. Create a new feature branch: `$ git checkout -b my-feature-branch`
 3. Build and Test the project to make sure everything is good-to-go
@@ -143,12 +135,16 @@ Getting Started
 7. Push your work to your feature branch: `$ git push origin my-feature-branch`
 8. Create the PR [here](https://github.com/rentpath/Atlas/compare?expand=1)
 
-Tests
-------
-This library makes heavy use of testing to ensure stable and maintainable code. Please make sure you run the tests often, especially before comitting or creating PR's. To run the tests simply hold in the `command` key and press `u`.
+### Tests
+
+This library makes heavy use of testing to ensure stable and maintainable code. Please make sure you run the tests often, especially before committing or creating PR's. To run the tests simply hold in the `command` key and press `u`.
 
 If there are ever failing tests, first stash all of your local changes and run the tests again. This will verify if you made a changed that caused a test failure. There can be two possible outcomes, which are outlined below:
 
-1. There are still failing tests after staging all of your local changes. If this happens, please investigate which commit introduced the failing test(s) and report that to the auther of that commit to address the failing test(s). 
+1. There are still failing tests after staging all of your local changes. If this happens, please investigate which commit introduced the failing test(s) and report that to the auther of that commit to address the failing test(s).
 
 2. All tests pass after you stage all your local changes. This means you've introduced code that caused a failing test(s). Please investigate what test(s) are failing and look at what you changed that caused the test failures. If needed, get with the auther of the test and determine if your changes should be kept and the test should be updated. If not, then you'll need to revert your changes so that the test(s) pass and continue your work with a different implementation that doesn't result in test failures.
+
+# License
+
+Atlas is released under the MIT License. See the bundled LICENSE file for details.
