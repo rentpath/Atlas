@@ -16,11 +16,11 @@ github "rentpath/Atlas" ~> 1.0
 ### Submodule
 To install this library via submodule, just do the following:
 ```bash
-git submodule add git@github.com/rentpath/RPCoreKit
+git submodule add git@github.com/rentpath/Atlas
 ```
 
 ### Directly include source
-Don't! This is not a good idea since it makes updating dependencies much more difficult and time consuming. Use one of the options above.
+**Don't!** This is not a good idea since it makes updating dependencies much more difficult and time consuming. Use one of the options above.
 
 # How It's Used
 
