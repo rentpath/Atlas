@@ -124,6 +124,45 @@ extension User: AtlasMap {
 
 }
 ```
+
+# Error handling
+
+We wanted to make the errors returned by Atalas descriptive and clearly explain why something failed. Here's a simple example of how valuable the errors can be to debugging a JSON mapping issue.
+
+Say you have a JSON object like this one you are fetching from a remote server:
+
+```swift
+{
+    "first_name": "John",
+    "last_name": "Appleseed",
+    "email": "john@test.com",
+    "phone": 2223334444,
+    "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
+    "is_active": true,
+    "member_since": "2016-01-30T09:19:52.000"
+}
+```
+
+You've implemented Atlas and all of your JSON mapping is working great. Then one day things stop working and the JSON mapping is failing due to a server side change in the JSON object being sent back. For the sake of this example, here's what you determine the new JSON object looks like after the server side changes:
+
+```swift
+{
+    "first_name": "John",
+    "last_name": "Appleseed",
+    "email": "john@test.com",
+    "phone": "2223334444",
+    "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
+    "is_active": true,
+    "member_since": "2016-01-30T09:19:52.000"
+}
+```
+
+Notice the `phone` number is now a `String` and no longer an `Int`. In this example, Atlas would be throwing a `MappingError.NotMappable` error with the message ".phone - Unable to map 2223334444 to type Int".
+
+Let's say the `phone` KVP was removed from the JSON object alltogether, Atlas would throw a `MappingError.KeyNotInJSONError` with the message "Mapping to Int failed. phone is not in the JSON object provided.".
+
+See [MappingError.swift](https://github.com/rentpath/Atlas/blob/master/Atlas/MappingError.swift) for all of the possible errors that Atlas can throw.
+
 # Contributing
 
 ### Workflow
