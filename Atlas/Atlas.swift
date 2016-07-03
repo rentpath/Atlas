@@ -66,7 +66,7 @@ public class Atlas {
     
     /**
      
-     Accept the `optional` key name you would like to map to the model. If the key does not exists no `MappingError` will be thrown
+     Used to map `key` to the type specified when calling `-to:` or `forceTo:`. If the key does not exist no `MappingError` will be thrown.
      
      - Parameters key: The string that represents the key in the JSON object.
 
@@ -79,12 +79,15 @@ public class Atlas {
         return self
     }
     
-    
     /**
     
-     Oh, were you thinking about using this? Really? NOOOO! Don't do it!, Stay away. Stay far far away!
+     Used to forecully map an object to type `T`. Ex. Say you have a JSON object with a KVP of {"phone": "5552325656"}. You could "forcefully" map the value to type "Int" using `map.("phone").forceTo(Int)`. This would attempt to map the string "5552325656" to a true Int value of 5552325656.
      
-     Andre, is watching you!
+     - Parameters type: Type you would like the JSON value to be converted to
+     
+     - Throws: If `-key:` method was used, a `MappingError` may be thrown if the type cannot be converted or key does not exists
+     
+     - Returns: An Optional `T`
      
      */
     public func forceTo<T>(type: T.Type) throws -> T? {
@@ -104,11 +107,11 @@ public class Atlas {
      
      A type you would like the JSON value to be converted, this could be a 'primitive' or a model type
      
-     - Parameters type: Type you would like the JSON value to be converted
+     - Parameters type: Type you would like the JSON value to be converted to
      
-     - Throws: If `Key` method was used an `MappingError` may be thrown if the type cannot be converted or key does not exists
+     - Throws: If `-key:` method was used, a `MappingError` may be thrown if the type cannot be converted or key does not exists
      
-     - Returns: An Optional type object of the type you passed in
+     - Returns: An Optional `T`
      
      */
     public func to<T>(type: T.Type) throws -> T? {
@@ -154,9 +157,9 @@ public class Atlas {
      
      - Parameters type: Type you would like the JSON array value to be converted
      
-     - Throws: If `Key` method was used an `MappingError` may be thrown if the type cannot be converted or key does not exists
+     - Throws: If `-key:` method was used, a `MappingError` may be thrown if the type cannot be converted or key does not exists
      
-     - Returns: An Optional array type object of the array type you passed in
+     - Returns: An Optional array of `T`
      
      */
     public func toArrayOf<T>(type: T.Type) throws -> [T]? {
@@ -176,7 +179,7 @@ public class Atlas {
             if _keyIsOptional {
                 return nil
             } else {
-                throw MappingError.GenericMappingError
+                throw MappingError.NotAnArray
             }
         }
 

@@ -59,4 +59,11 @@ public enum MappingError: ErrorType {
      */
     case NotMappable(String)
     
+    /**
+     
+     Asked to map a JSON object to an array using `-toArrayOf:` but the JSON object trying to be mapped is not a valid JSON Array.
+     
+     */
+    case NotAnArray
+    
 }
