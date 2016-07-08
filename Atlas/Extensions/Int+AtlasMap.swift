@@ -20,50 +20,14 @@
  * SOFTWARE.
  */
 
-public enum MappingError: ErrorType {
+extension Int: AtlasMap {
     
-    /**
-     
-     There is no key available. Please make sure you first call `-key:` and pass the key that corresponds to the value in JSON you want to map.
-     
-     */
-    case NoKeyError
+    public func toJSON() -> JSON? {
+        return nil
+    }
     
-    /**
-     
-     'key' does not exist in `_json`.
-     
-     - Parameters String: name of key
-     
-     */
-    case KeyNotInJSONError(String)
-    
-    /**
-     
-     There was an error during the mapping process
-     
-     */
-    case GenericMappingError
-    
-    /**
-     
-     Thrown when `json` is not of type [String: AnyObject] or [AnyObject], which are the only two types a true JSON object could be
-     
-     */
-    case NotAJSONObjectError
-    
-    /**
-     
-     Thrown when not able to map a JSON value to specified type
-     
-     */
-    case NotMappable(String)
-    
-    /**
-     
-     Asked to map a JSON object to an array using `-toArrayOf:` but the JSON object trying to be mapped is not a valid JSON Array.
-     
-     */
-    case NotAnArray
+    public init?(json: JSON) {
+        self = Int("\(json)")!
+    }
     
 }

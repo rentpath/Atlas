@@ -7,12 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		196D23311D46AF7D007F8683 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B16891D2EAFA000EEEA1A /* Address.swift */; };
+		196D23321D46AF80007F8683 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168B1D2EB05100EEEA1A /* Photo.swift */; };
+		196D23331D46AF82007F8683 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */; };
+		196D234C1D46B3C2007F8683 /* Bool+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23441D46B3C2007F8683 /* Bool+AtlasMap.swift */; };
+		196D234D1D46B3C2007F8683 /* Bool+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23441D46B3C2007F8683 /* Bool+AtlasMap.swift */; };
+		196D234E1D46B3C2007F8683 /* Dictionary+NullCleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23451D46B3C2007F8683 /* Dictionary+NullCleaning.swift */; };
+		196D234F1D46B3C2007F8683 /* Dictionary+NullCleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23451D46B3C2007F8683 /* Dictionary+NullCleaning.swift */; };
+		196D23501D46B3C2007F8683 /* Double+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23461D46B3C2007F8683 /* Double+AtlasMap.swift */; };
+		196D23511D46B3C2007F8683 /* Double+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23461D46B3C2007F8683 /* Double+AtlasMap.swift */; };
+		196D23521D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */; };
+		196D23531D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */; };
+		196D23541D46B3C2007F8683 /* Int+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */; };
+		196D23551D46B3C2007F8683 /* Int+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */; };
+		196D23561D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */; };
+		196D23571D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */; };
+		196D23581D46B3C2007F8683 /* String+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */; };
+		196D23591D46B3C2007F8683 /* String+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */; };
+		196D235B1D46B3D7007F8683 /* AtlasMapExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D235A1D46B3D7007F8683 /* AtlasMapExecutor.swift */; };
+		196D235C1D46B3D7007F8683 /* AtlasMapExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D235A1D46B3D7007F8683 /* AtlasMapExecutor.swift */; };
+		196D23611D46B53B007F8683 /* AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23601D46B53B007F8683 /* AtlasMap.swift */; };
+		196D23621D46B53B007F8683 /* AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23601D46B53B007F8683 /* AtlasMap.swift */; };
+		196D23641D46B897007F8683 /* AtlasMappingExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23631D46B897007F8683 /* AtlasMappingExecutor.swift */; };
+		196D23651D46B897007F8683 /* AtlasMappingExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23631D46B897007F8683 /* AtlasMappingExecutor.swift */; };
+		196D23671D46BB48007F8683 /* AtlasDateMappingExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23661D46BB48007F8683 /* AtlasDateMappingExecutor.swift */; };
+		196D23681D46BB48007F8683 /* AtlasDateMappingExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23661D46BB48007F8683 /* AtlasDateMappingExecutor.swift */; };
+		1A3B168A1D2EAFA000EEEA1A /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B16891D2EAFA000EEEA1A /* Address.swift */; };
+		1A3B168C1D2EB05100EEEA1A /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168B1D2EB05100EEEA1A /* Photo.swift */; };
+		1A3B168E1D2EB0B800EEEA1A /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */; };
+		1AF687BD1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF687BC1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift */; };
 		1AF952661CABF52A00D44B05 /* Atlas.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AF952651CABF52A00D44B05 /* Atlas.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AF9526D1CABF52A00D44B05 /* Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF952621CABF52A00D44B05 /* Atlas.framework */; };
 		1AF952721CABF52A00D44B05 /* AtlasJSONDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952711CABF52A00D44B05 /* AtlasJSONDictionaryTests.swift */; };
-		1AF952801CABF81900D44B05 /* Dictionary+NullCleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527C1CABF81900D44B05 /* Dictionary+NullCleaning.swift */; };
-		1AF952811CABF81900D44B05 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527D1CABF81900D44B05 /* NSDate+Extensions.swift */; };
-		1AF952821CABF81900D44B05 /* AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527E1CABF81900D44B05 /* AtlasMap.swift */; };
 		1AF952831CABF81900D44B05 /* Atlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527F1CABF81900D44B05 /* Atlas.swift */; };
 		1AF952861CAC08D900D44B05 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952851CAC08D900D44B05 /* MappingError.swift */; };
 		1AF9528A1CAC103800D44B05 /* TestJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952891CAC103800D44B05 /* TestJSON.swift */; };
@@ -21,9 +47,6 @@
 		1AF952991CAC446B00D44B05 /* AtlasTV.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AF952981CAC446B00D44B05 /* AtlasTV.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1AF952A01CAC446B00D44B05 /* AtlasTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF952961CAC446B00D44B05 /* AtlasTV.framework */; };
 		1AF952A51CAC446B00D44B05 /* AtlasTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952A41CAC446B00D44B05 /* AtlasTVTests.swift */; };
-		1AF952AD1CAC448000D44B05 /* Dictionary+NullCleaning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527C1CABF81900D44B05 /* Dictionary+NullCleaning.swift */; };
-		1AF952AE1CAC448000D44B05 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527D1CABF81900D44B05 /* NSDate+Extensions.swift */; };
-		1AF952AF1CAC448000D44B05 /* AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527E1CABF81900D44B05 /* AtlasMap.swift */; };
 		1AF952B01CAC448000D44B05 /* Atlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527F1CABF81900D44B05 /* Atlas.swift */; };
 		1AF952B11CAC448000D44B05 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952851CAC08D900D44B05 /* MappingError.swift */; };
 		1AF952B21CAC451B00D44B05 /* AtlasJSONDictionaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952711CABF52A00D44B05 /* AtlasJSONDictionaryTests.swift */; };
@@ -50,15 +73,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		196D23441D46B3C2007F8683 /* Bool+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bool+AtlasMap.swift"; sourceTree = "<group>"; };
+		196D23451D46B3C2007F8683 /* Dictionary+NullCleaning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+NullCleaning.swift"; sourceTree = "<group>"; };
+		196D23461D46B3C2007F8683 /* Double+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+AtlasMap.swift"; sourceTree = "<group>"; };
+		196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+AtlasMap.swift"; sourceTree = "<group>"; };
+		196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+AtlasMap.swift"; sourceTree = "<group>"; };
+		196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
+		196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AtlasMap.swift"; sourceTree = "<group>"; };
+		196D235A1D46B3D7007F8683 /* AtlasMapExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasMapExecutor.swift; sourceTree = "<group>"; };
+		196D23601D46B53B007F8683 /* AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasMap.swift; sourceTree = "<group>"; };
+		196D23631D46B897007F8683 /* AtlasMappingExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasMappingExecutor.swift; sourceTree = "<group>"; };
+		196D23661D46BB48007F8683 /* AtlasDateMappingExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasDateMappingExecutor.swift; sourceTree = "<group>"; };
+		1A3B16891D2EAFA000EEEA1A /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		1A3B168B1D2EB05100EEEA1A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorPlan.swift; sourceTree = "<group>"; };
+		1AF687BC1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AtlasMappingExecutor+AtlasDateMapping.swift"; sourceTree = "<group>"; };
 		1AF952621CABF52A00D44B05 /* Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF952651CABF52A00D44B05 /* Atlas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Atlas.h; sourceTree = "<group>"; };
 		1AF952671CABF52A00D44B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AF9526C1CABF52A00D44B05 /* AtlasTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF952711CABF52A00D44B05 /* AtlasJSONDictionaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtlasJSONDictionaryTests.swift; sourceTree = "<group>"; };
 		1AF952731CABF52A00D44B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1AF9527C1CABF81900D44B05 /* Dictionary+NullCleaning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dictionary+NullCleaning.swift"; sourceTree = "<group>"; };
-		1AF9527D1CABF81900D44B05 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
-		1AF9527E1CABF81900D44B05 /* AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasMap.swift; sourceTree = "<group>"; };
 		1AF9527F1CABF81900D44B05 /* Atlas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Atlas.swift; sourceTree = "<group>"; };
 		1AF952851CAC08D900D44B05 /* MappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
 		1AF952891CAC103800D44B05 /* TestJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestJSON.swift; sourceTree = "<group>"; };
@@ -106,6 +141,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		196D23431D46B3C2007F8683 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1AF687BC1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift */,
+				196D23441D46B3C2007F8683 /* Bool+AtlasMap.swift */,
+				196D23451D46B3C2007F8683 /* Dictionary+NullCleaning.swift */,
+				196D23461D46B3C2007F8683 /* Double+AtlasMap.swift */,
+				196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */,
+				196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */,
+				196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */,
+				196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		196D234B1D46B3C2007F8683 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				196D23601D46B53B007F8683 /* AtlasMap.swift */,
+				196D235A1D46B3D7007F8683 /* AtlasMapExecutor.swift */,
+				196D23661D46BB48007F8683 /* AtlasDateMappingExecutor.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		1AF952581CABF52A00D44B05 = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +191,9 @@
 		1AF952641CABF52A00D44B05 /* Atlas */ = {
 			isa = PBXGroup;
 			children = (
-				1AF952871CAC0C5400D44B05 /* Extensions */,
-				1AF9527E1CABF81900D44B05 /* AtlasMap.swift */,
+				196D23431D46B3C2007F8683 /* Extensions */,
+				196D234B1D46B3C2007F8683 /* Protocols */,
+				196D23631D46B897007F8683 /* AtlasMappingExecutor.swift */,
 				1AF9527F1CABF81900D44B05 /* Atlas.swift */,
 				1AF952851CAC08D900D44B05 /* MappingError.swift */,
 				1AF952841CABF81E00D44B05 /* Supporting Files */,
@@ -160,15 +221,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1AF952871CAC0C5400D44B05 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				1AF9527C1CABF81900D44B05 /* Dictionary+NullCleaning.swift */,
-				1AF9527D1CABF81900D44B05 /* NSDate+Extensions.swift */,
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
 		1AF952881CAC101600D44B05 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				1AF9528D1CAC152B00D44B05 /* User.swift */,
+				1A3B16891D2EAFA000EEEA1A /* Address.swift */,
+				1A3B168B1D2EB05100EEEA1A /* Photo.swift */,
+				1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */,
 			);
 			path = TestModels;
 			sourceTree = "<group>";
@@ -378,10 +433,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196D234E1D46B3C2007F8683 /* Dictionary+NullCleaning.swift in Sources */,
+				196D23641D46B897007F8683 /* AtlasMappingExecutor.swift in Sources */,
+				196D235B1D46B3D7007F8683 /* AtlasMapExecutor.swift in Sources */,
+				196D23501D46B3C2007F8683 /* Double+AtlasMap.swift in Sources */,
+				196D234C1D46B3C2007F8683 /* Bool+AtlasMap.swift in Sources */,
+				196D23671D46BB48007F8683 /* AtlasDateMappingExecutor.swift in Sources */,
+				196D23581D46B3C2007F8683 /* String+AtlasMap.swift in Sources */,
+				196D23561D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */,
+				1AF687BD1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift in Sources */,
+				196D23521D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */,
+				196D23611D46B53B007F8683 /* AtlasMap.swift in Sources */,
 				1AF952831CABF81900D44B05 /* Atlas.swift in Sources */,
-				1AF952811CABF81900D44B05 /* NSDate+Extensions.swift in Sources */,
-				1AF952801CABF81900D44B05 /* Dictionary+NullCleaning.swift in Sources */,
-				1AF952821CABF81900D44B05 /* AtlasMap.swift in Sources */,
+				196D23541D46B3C2007F8683 /* Int+AtlasMap.swift in Sources */,
 				1AF952861CAC08D900D44B05 /* MappingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,10 +454,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A3B168C1D2EB05100EEEA1A /* Photo.swift in Sources */,
 				1AF952721CABF52A00D44B05 /* AtlasJSONDictionaryTests.swift in Sources */,
 				1AF952901CAC1D6400D44B05 /* AtlasJSONArrayTests.swift in Sources */,
 				1AF9528A1CAC103800D44B05 /* TestJSON.swift in Sources */,
 				1AF9528E1CAC152B00D44B05 /* User.swift in Sources */,
+				1A3B168E1D2EB0B800EEEA1A /* FloorPlan.swift in Sources */,
+				1A3B168A1D2EAFA000EEEA1A /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,10 +468,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AF952AD1CAC448000D44B05 /* Dictionary+NullCleaning.swift in Sources */,
-				1AF952AE1CAC448000D44B05 /* NSDate+Extensions.swift in Sources */,
-				1AF952AF1CAC448000D44B05 /* AtlasMap.swift in Sources */,
+				196D234F1D46B3C2007F8683 /* Dictionary+NullCleaning.swift in Sources */,
+				196D23651D46B897007F8683 /* AtlasMappingExecutor.swift in Sources */,
+				196D235C1D46B3D7007F8683 /* AtlasMapExecutor.swift in Sources */,
+				196D23511D46B3C2007F8683 /* Double+AtlasMap.swift in Sources */,
+				196D234D1D46B3C2007F8683 /* Bool+AtlasMap.swift in Sources */,
+				196D23681D46BB48007F8683 /* AtlasDateMappingExecutor.swift in Sources */,
+				196D23591D46B3C2007F8683 /* String+AtlasMap.swift in Sources */,
+				196D23571D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */,
+				196D23531D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */,
+				196D23621D46B53B007F8683 /* AtlasMap.swift in Sources */,
 				1AF952B01CAC448000D44B05 /* Atlas.swift in Sources */,
+				196D23551D46B3C2007F8683 /* Int+AtlasMap.swift in Sources */,
 				1AF952B11CAC448000D44B05 /* MappingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,11 +488,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				196D23321D46AF80007F8683 /* Photo.swift in Sources */,
+				196D23311D46AF7D007F8683 /* Address.swift in Sources */,
 				1AF952B41CAC452000D44B05 /* User.swift in Sources */,
 				1AF952B51CAC452200D44B05 /* TestJSON.swift in Sources */,
 				1AF952B31CAC451D00D44B05 /* AtlasJSONArrayTests.swift in Sources */,
 				1AF952A51CAC446B00D44B05 /* AtlasTVTests.swift in Sources */,
 				1AF952B21CAC451B00D44B05 /* AtlasJSONDictionaryTests.swift in Sources */,
+				196D23331D46AF82007F8683 /* FloorPlan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +608,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -664,6 +743,7 @@
 				1AF952781CABF52A00D44B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AF952791CABF52A00D44B05 /* Build configuration list for PBXNativeTarget "AtlasTests" */ = {
 			isa = XCConfigurationList;
@@ -672,6 +752,7 @@
 				1AF9527B1CABF52A00D44B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AF952A71CAC446B00D44B05 /* Build configuration list for PBXNativeTarget "AtlasTV" */ = {
 			isa = XCConfigurationList;
@@ -680,6 +761,7 @@
 				1AF952A91CAC446B00D44B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1AF952AA1CAC446B00D44B05 /* Build configuration list for PBXNativeTarget "AtlasTVTests" */ = {
 			isa = XCConfigurationList;
@@ -688,6 +770,7 @@
 				1AF952AC1CAC446B00D44B05 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

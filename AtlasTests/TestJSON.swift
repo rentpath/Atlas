@@ -8,45 +8,127 @@
 
 struct TestJSON {
     
-    static let jsonDictionary: [String: AnyObject] = [
+    static let user: [String: AnyObject] = [
         "first_name": "John",
         "last_name": "Appleseed",
         "email": "john@test.com",
         "phone": 2223334444,
         "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
         "is_active": true,
-        "member_since": "2016-01-30T09:19:52.000"
+        "member_since": "2016-01-30T09:19:52.000",
+        "address": [
+            "number": 123,
+            "street": "Main St",
+            "city": "Atlanta",
+            "state": "GA",
+            "zip": "12345"
+        ],
+        "floorplans": [
+            fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan
+        ],
+        "photos": [
+            photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo
+        ]
     ]
     
-    static let jsonDictionaryMissingKey: [String: AnyObject] = [
+    static let users: [[String: AnyObject]] = [
+        user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user
+    ]
+    
+    static let fplan: [String: AnyObject] = [
+        "name": "Foo",
+        "photos": [
+            photo, photo, photo, photo, photo, photo, photo
+        ],
+        "sqft": 2345,
+        "beds": 2,
+        "baths": 1
+    ]
+    
+    static let photo: [String: AnyObject] = [
+        "abstract": "Something about this photo...",
+        "url": "/img/shdhiwieo9weoidifhowedhdw/"
+    ]
+    
+    static let userMissingKey: [String: AnyObject] = [
+        "first_name": "John",
+        "last_name": "Appleseed",
+/*>>>   "email": "john@test.com", Removed for test */
+        "phone": 2223334444,
+        "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
+        "is_active": true,
+        "member_since": "2016-01-30T09:19:52.000",
+        "address": [
+            "number": 123,
+            "street": "Main St",
+            "city": "Atlanta",
+            "state": "GA",
+            "zip": "12345"
+        ],
+        "floorplans": [
+            fplan
+        ],
+        "photos": [
+            photo
+        ]
+    ]
+    
+    static let userInvalidValueKey: [String: AnyObject] = [
         "first_name": "John",
         "last_name": "Appleseed",
         "email": "john@test.com",
+        "phone": 2223334444,
         "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
-        "is_active": true,
-        "member_since": "2016-01-30T09:19:52.000"
+/*>>>*/ "is_active": "true", // Changed to "true" for a test
+        "member_since": "2016-01-30T09:19:52.000",
+        "address": [
+            "number": 123,
+            "street": "Main St",
+            "city": "Atlanta",
+            "state": "GA",
+            "zip": "12345"
+        ],
+        "floorplans": [
+            fplan
+        ],
+        "photos": [
+            photo
+        ]
     ]
     
     static let jsonDictionaryDifferentType: [String: AnyObject] = [
         "first_name": "John",
         "last_name": "Appleseed",
         "email": "john@test.com",
-        "phone": "2223334444",
+        "phone": "2223334444", // Change value to a String for test
         "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
         "is_active": true,
-        "member_since": "2016-01-30T09:19:52.000"
+        "member_since": "2016-01-30T09:19:52.000",
+        "address": [
+            "number": 123,
+            "street": "Main St",
+            "city": "Atlanta",
+            "state": "GA",
+            "zip": "12345"
+        ],
+        "floorplans": [
+            fplan
+        ],
+        "photos": [
+            photo
+        ]
     ]
     
     static let jsonArray: [AnyObject] = [
-        jsonDictionary, jsonDictionary, jsonDictionary
+        user, user, user
     ]
     
     static let jsonArrayMissingKey: [AnyObject] = [
-        jsonDictionaryMissingKey, jsonDictionary, jsonDictionary
+        userMissingKey, user, user
     ]
     
     static let jsonArrayDifferentType: [AnyObject] = [
-        jsonDictionaryDifferentType, jsonDictionary, jsonDictionary
+        jsonDictionaryDifferentType, user, user
     ]
     
 }

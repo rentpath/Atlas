@@ -23,25 +23,31 @@ struct User {
     let avatarURL: String?
     let isActive: Bool
     let memberSince: NSDate?
+    let address: Address?
+    let photos: [Photo]?
+    let floorPlans: [FloorPlan]?
     
 }
 
 extension User: AtlasMap {
     
-    func toJSON() -> [String : AnyObject]? {
+    func toJSON() -> JSON? {
         return nil
     }
     
     init?(json: JSON) throws {
         do {
             let map = try Atlas(json)
-            firstName = try map.key("first_name").to(String)
-            lastName = try map.key("last_name").to(String)
-            email = try map.key("email").to(String) ?? ""
-            phone = try map.key("phone").to(Int)
-            avatarURL = try map.key("avatar").to(String)
-            isActive = try map.key("is_active").to(Bool) ?? false
-            memberSince = try map.key("member_since").toRFC3339Date()
+            firstName = try map.objectFromOptionalKey("first_name")
+            lastName = try map.objectFromOptionalKey("last_name")
+            email = try map.objectFromKey("email")
+            phone = try map.objectFromOptionalKey("phone")
+            avatarURL = try map.objectFromOptionalKey("avatar")
+            isActive = try map.objectFromKey("is_active")
+            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .RFC3339)
+            address = try map.objectFromOptionalKey("address")
+            photos = try map.arrayFromOptionalKey("photos")
+            floorPlans = try map.arrayFromOptionalKey("floorplans")
         } catch let e {
             throw e
         }
@@ -67,20 +73,20 @@ struct UserNoKey {
 
 extension UserNoKey: AtlasMap {
     
-    func toJSON() -> [String : AnyObject]? {
+    func toJSON() -> JSON? {
         return nil
     }
     
     init?(json: JSON) throws {
         do {
             let map = try Atlas(json)
-            firstName = try map.key("first_name").to(String)
-            lastName = try map.to(String) // Not calling .key("last_name") purposely for a test
-            email = try map.key("email").to(String) ?? ""
-            phone = try map.key("phone").to(Int)
-            avatarURL = try map.key("avatar").to(String)
-            isActive = try map.key("is_active").to(Bool) ?? false
-            memberSince = try map.key("member_since").toRFC3339Date()
+            firstName = try map.objectFromOptionalKey("first_name")
+            lastName = try map.objectFromOptionalKey("last_name")
+            email = try map.objectFromKey("foo") // foo is not a valid key in user json, this is for a test
+            phone = try map.objectFromOptionalKey("phone")
+            avatarURL = try map.objectFromOptionalKey("avatar")
+            isActive = try map.objectFromKey("is_active")
+            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .RFC3339)
         } catch let e {
             throw e
         }

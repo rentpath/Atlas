@@ -20,50 +20,38 @@
  * SOFTWARE.
  */
 
-public enum MappingError: ErrorType {
+public protocol AtlasMapExector {
+
+    var dateMappingExecutor: AtlasDateMappingExecutor? { get }
     
     /**
-     
-     There is no key available. Please make sure you first call `-key:` and pass the key that corresponds to the value in JSON you want to map.
-     
+     Used to map a top-level JSON object to an instance of `T`
      */
-    case NoKeyError
+    func object<T: AtlasMap>(object: [String: JSON]?) throws -> T?
     
     /**
-     
-     'key' does not exist in `_json`.
-     
-     - Parameters String: name of key
-     
+     Used to map a top-level JSON array to an instance of `[T]`
      */
-    case KeyNotInJSONError(String)
+    func array<T: AtlasMap>(array: [JSON]?) throws -> [T]?
     
     /**
-     
-     There was an error during the mapping process
-     
+     Used to map the value of `key` within `object` to an instance of `T`
      */
-    case GenericMappingError
+    func objectFromKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> T
     
     /**
-     
-     Thrown when `json` is not of type [String: AnyObject] or [AnyObject], which are the only two types a true JSON object could be
-     
+     Used to map the value of `key` within `object` to an instance of `[T]`
      */
-    case NotAJSONObjectError
+    func arrayFromKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> [T]
     
     /**
-     
-     Thrown when not able to map a JSON value to specified type
-     
+     Used to map the value of `key` within `object` to an instance of `T`
      */
-    case NotMappable(String)
+    func objectFromOptionalKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> T?
     
     /**
-     
-     Asked to map a JSON object to an array using `-toArrayOf:` but the JSON object trying to be mapped is not a valid JSON Array.
-     
+     Used to map the value of `key` within `object` to an instance of `[T]`
      */
-    case NotAnArray
+    func arrayFromOptionalKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> [T]?
     
 }
