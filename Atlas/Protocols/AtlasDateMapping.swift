@@ -7,6 +7,8 @@
 //
 
 public protocol AtlasDateMapping {
-    func mapToRFC3339Date() throws -> NSDate?
-    func mapToDateWithFormat(format: String) throws -> NSDate?
+    func mapKey(key: String) throws -> Self
+    func mapOptionalKey(key: String) throws -> Self
+    func toRFC3339Date() throws -> NSDate?
+    func toDateWithFormat(format: String) throws -> NSDate?
 }
