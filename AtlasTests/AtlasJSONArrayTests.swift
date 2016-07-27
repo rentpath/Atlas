@@ -41,7 +41,7 @@ class AtlasJSONArrayTests: XCTestCase {
             user = try Atlas(TestJSON.jsonArrayMissingKey).array()
         } catch let e as MappingError {
             switch e {
-            case let .KeyNotInJSONError(_message):
+            case let .keyNotInJSONError(_message):
                 message = _message
             default:
                 XCTFail("Unexpected Mapping error occurred: \(e)")
@@ -63,7 +63,7 @@ class AtlasJSONArrayTests: XCTestCase {
             users = try Atlas(TestJSON.jsonArrayDifferentType).array()
         } catch let e as MappingError {
             switch e {
-            case let .NotMappable(_message):
+            case let .notMappable(_message):
                 message = "User\(_message)"
             default:
                 XCTFail("Unexpected Mapping error occurred: \(e)")
@@ -85,7 +85,7 @@ class AtlasJSONArrayTests: XCTestCase {
             user = try Atlas(TestJSON.jsonArray).array()
         } catch let e as MappingError {
             switch e {
-            case let .KeyNotInJSONError(error):
+            case let .keyNotInJSONError(error):
                 message = "User.\(error)"
             default:
                 XCTFail("Unexpected Mapping error occurred: \(e)")
@@ -106,7 +106,7 @@ class AtlasJSONArrayTests: XCTestCase {
             user = try Atlas(TestJSON.user).array()
         } catch let e as MappingError {
             switch e {
-            case .NotAnArray:
+            case .notAnArray:
                 message = "NotAnArray"
             default:
                 XCTFail("Unexpected Mapping error occurred: \(e)")
@@ -122,7 +122,7 @@ class AtlasJSONArrayTests: XCTestCase {
     }
     
     func testPerformanceExample() {
-        self.measureBlock {
+        self.measure {
             do {
                 let _: [User]? = try Atlas(TestJSON.jsonArray).array()
             } catch let e {

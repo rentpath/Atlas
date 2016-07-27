@@ -20,15 +20,15 @@
  * SOFTWARE.
  */
 
-public extension NSDate {
+public extension Date {
     
     public enum DateFormat {
-        case RFC3339, ISO8601, Custom(String)
+        case rfc3339, iso8601, custom(String)
     }
     
     private struct Static {
-        static var formatter: NSDateFormatter = {
-            let formatter = NSDateFormatter()
+        static var formatter: DateFormatter = {
+            let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
             return formatter
         }()
@@ -44,7 +44,7 @@ public extension NSDate {
     public func toRFC3339String() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /**
@@ -57,7 +57,7 @@ public extension NSDate {
     public func toISO8601String() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
-        return formatter.stringFromDate(self)
+        return formatter.string(from: self)
     }
     
     /**
@@ -69,8 +69,8 @@ public extension NSDate {
      - Returns: An Optional NSDate
      
      */
-    public class func dateFromRFC3339String(string: String) -> NSDate? {
-        return dateFromString(string, withFormat: .RFC3339)
+    public static func dateFromRFC3339String(_ string: String) -> Date? {
+        return dateFromString(string, withFormat: .rfc3339)
     }
     
     /**
@@ -84,18 +84,18 @@ public extension NSDate {
      - Returns: NSDate after converting dateString
      
      */
-    public class func dateFromString(dateString: String, withFormat format: DateFormat) -> NSDate? {
+    public static func dateFromString(_ dateString: String, withFormat format: DateFormat) -> Date? {
         let formatter = Static.formatter
         switch format {
-        case .RFC3339:
+        case .rfc3339:
             fallthrough
-        case .ISO8601:
+        case .iso8601:
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
-        case let .Custom(_format):
+        case let .custom(_format):
             formatter.dateFormat = _format
         }
         
-        return formatter.dateFromString(dateString)
+        return formatter.date(from: dateString)
     }
     
 }

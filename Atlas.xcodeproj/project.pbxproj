@@ -20,8 +20,8 @@
 		196D23531D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */; };
 		196D23541D46B3C2007F8683 /* Int+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */; };
 		196D23551D46B3C2007F8683 /* Int+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */; };
-		196D23561D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */; };
-		196D23571D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */; };
+		196D23561D46B3C2007F8683 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23491D46B3C2007F8683 /* Date+Extensions.swift */; };
+		196D23571D46B3C2007F8683 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D23491D46B3C2007F8683 /* Date+Extensions.swift */; };
 		196D23581D46B3C2007F8683 /* String+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */; };
 		196D23591D46B3C2007F8683 /* String+AtlasMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */; };
 		196D235B1D46B3D7007F8683 /* AtlasMapExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196D235A1D46B3D7007F8683 /* AtlasMapExecutor.swift */; };
@@ -78,7 +78,7 @@
 		196D23461D46B3C2007F8683 /* Double+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double+AtlasMap.swift"; sourceTree = "<group>"; };
 		196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Float+AtlasMap.swift"; sourceTree = "<group>"; };
 		196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+AtlasMap.swift"; sourceTree = "<group>"; };
-		196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Extensions.swift"; sourceTree = "<group>"; };
+		196D23491D46B3C2007F8683 /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+AtlasMap.swift"; sourceTree = "<group>"; };
 		196D235A1D46B3D7007F8683 /* AtlasMapExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasMapExecutor.swift; sourceTree = "<group>"; };
 		196D23601D46B53B007F8683 /* AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasMap.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				196D23461D46B3C2007F8683 /* Double+AtlasMap.swift */,
 				196D23471D46B3C2007F8683 /* Float+AtlasMap.swift */,
 				196D23481D46B3C2007F8683 /* Int+AtlasMap.swift */,
-				196D23491D46B3C2007F8683 /* NSDate+Extensions.swift */,
+				196D23491D46B3C2007F8683 /* Date+Extensions.swift */,
 				196D234A1D46B3C2007F8683 /* String+AtlasMap.swift */,
 			);
 			path = Extensions;
@@ -360,14 +360,16 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = RentPath;
 				TargetAttributes = {
 					1AF952611CABF52A00D44B05 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					1AF9526B1CABF52A00D44B05 = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					1AF952951CAC446B00D44B05 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -440,7 +442,7 @@
 				196D234C1D46B3C2007F8683 /* Bool+AtlasMap.swift in Sources */,
 				196D23671D46BB48007F8683 /* AtlasDateMappingExecutor.swift in Sources */,
 				196D23581D46B3C2007F8683 /* String+AtlasMap.swift in Sources */,
-				196D23561D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */,
+				196D23561D46B3C2007F8683 /* Date+Extensions.swift in Sources */,
 				1AF687BD1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift in Sources */,
 				196D23521D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */,
 				196D23611D46B53B007F8683 /* AtlasMap.swift in Sources */,
@@ -475,7 +477,7 @@
 				196D234D1D46B3C2007F8683 /* Bool+AtlasMap.swift in Sources */,
 				196D23681D46BB48007F8683 /* AtlasDateMappingExecutor.swift in Sources */,
 				196D23591D46B3C2007F8683 /* String+AtlasMap.swift in Sources */,
-				196D23571D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */,
+				196D23571D46B3C2007F8683 /* Date+Extensions.swift in Sources */,
 				196D23531D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */,
 				196D23621D46B53B007F8683 /* AtlasMap.swift in Sources */,
 				1AF952B01CAC448000D44B05 /* Atlas.swift in Sources */,
@@ -621,6 +623,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -639,6 +642,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.Atlas;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -649,6 +654,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -659,6 +665,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -695,6 +703,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
@@ -720,6 +729,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTVTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;

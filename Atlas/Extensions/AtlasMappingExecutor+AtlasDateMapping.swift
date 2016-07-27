@@ -28,23 +28,23 @@ extension AtlasMappingExecutor: AtlasDateMappingExecutor {
         }
     }
     
-    func dateFromKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate? {
+    func dateFromKey(_ key: String, toDateWithFormat format: Date.DateFormat, withinJSONObject object: [String: JSON]?) throws -> Date? {
 //        guard let key = key else {
 //            throw MappingError.NoKeyError
 //        }
         
         guard let _val = object?[key] as? String where !_val.isEmpty else {
-            throw MappingError.NotMappable("The value of key \(key) in the provided JSON object isn't a String and therefore cannot be mapped to an NSDate.")
+            throw MappingError.notMappable("The value of key \(key) in the provided JSON object isn't a String and therefore cannot be mapped to an NSDate.")
         }
         
-        guard let date = NSDate.dateFromString(_val, withFormat: format) else {
-            throw MappingError.NotMappable("The date string \(_val) of key \(key) in the provided JSON object does not match the RFC3339 format.")
+        guard let date = Date.dateFromString(_val, withFormat: format) else {
+            throw MappingError.notMappable("The date string \(_val) of key \(key) in the provided JSON object does not match the RFC3339 format.")
         }
         
         return date
     }
     
-    func dateFromOptionalKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate? {
+    func dateFromOptionalKey(_ key: String, toDateWithFormat format: Date.DateFormat, withinJSONObject object: [String: JSON]?) throws -> Date? {
 //        guard let key = key else {
 //            throw MappingError.NoKeyError
 //        }
@@ -53,8 +53,8 @@ extension AtlasMappingExecutor: AtlasDateMappingExecutor {
             return nil
         }
         
-        guard let date = NSDate.dateFromString(_val, withFormat: format) else {
-            throw MappingError.NotMappable("The date string \(_val) of key \(key) in the provided JSON object does not match the RFC3339 format.")
+        guard let date = Date.dateFromString(_val, withFormat: format) else {
+            throw MappingError.notMappable("The date string \(_val) of key \(key) in the provided JSON object does not match the RFC3339 format.")
         }
         
         return date

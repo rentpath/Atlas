@@ -43,7 +43,7 @@ public class Atlas {
         case let a as [AnyObject]:
             _jsonArray = a
         default:
-            throw MappingError.NotAJSONObjectError
+            throw MappingError.notAJSONObjectError
         }
     }
     
@@ -71,7 +71,7 @@ public class Atlas {
     //MARK: Required Sub-object mapping - key required
     /////////////////////////////////////////////////////
     
-    public func objectFromKey<T: AtlasMap>(key: String) throws -> T {
+    public func objectFromKey<T: AtlasMap>(_ key: String) throws -> T {
         do {
             return try _executor.objectFromKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -80,7 +80,7 @@ public class Atlas {
     }
     
     
-    public func arrayFromKey<T: AtlasMap>(key: String) throws -> [T] {
+    public func arrayFromKey<T: AtlasMap>(_ key: String) throws -> [T] {
         do {
             return try _executor.arrayFromKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -92,7 +92,7 @@ public class Atlas {
     //MARK: Optional Sub-object mapping - key required
     /////////////////////////////////////////////////////
     
-    public func objectFromOptionalKey<T: AtlasMap>(key: String) throws -> T? {
+    public func objectFromOptionalKey<T: AtlasMap>(_ key: String) throws -> T? {
         do {
             return try _executor.objectFromOptionalKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -100,7 +100,7 @@ public class Atlas {
         }
     }
     
-    public func arrayFromOptionalKey<T: AtlasMap>(key: String) throws -> [T]? {
+    public func arrayFromOptionalKey<T: AtlasMap>(_ key: String) throws -> [T]? {
         do {
             return try _executor.arrayFromOptionalKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -112,7 +112,7 @@ public class Atlas {
     //MARK: Date mapping - key required
     /////////////////////////////////////////////////////
     
-    public func dateFromKey(key: String, usingFormat format: NSDate.DateFormat) throws -> NSDate? {
+    public func dateFromKey(_ key: String, usingFormat format: Date.DateFormat) throws -> Date? {
         do {
             return try _executor.dateMappingExecutor?.dateFromKey(key, toDateWithFormat: format, withinJSONObject: _jsonObject)
         } catch {
@@ -124,7 +124,7 @@ public class Atlas {
     //MARK: Date mapping - key not required
     /////////////////////////////////////////////////////
     
-    public func dateFromOptionalKey(key: String, usingFormat format: NSDate.DateFormat) throws -> NSDate? {
+    public func dateFromOptionalKey(_ key: String, usingFormat format: Date.DateFormat) throws -> Date? {
         do {
             return try _executor.dateMappingExecutor?.dateFromOptionalKey(key, toDateWithFormat: format, withinJSONObject: _jsonObject)
         } catch {
