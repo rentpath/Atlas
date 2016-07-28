@@ -20,50 +20,26 @@
  * SOFTWARE.
  */
 
-public enum MappingError: ErrorType {
-    
+
+/// A simple typealias used to make the initializer of RPJSONMappable more descriptive as to the type of object passed in. That is, it is a JSON response which can be either a Dictionary<String, AnyObject> or Array<AnyObject>.
+public typealias JSON = AnyObject
+
+public protocol AtlasMap {
     /**
+     Converts model to JSON
      
-     There is no key available. Please make sure you first call `-key:` and pass the key that corresponds to the value in JSON you want to map.
+     - Returns: JSON (AKA AnyObject) since valid JSON can be either an `Array<AnyObject>` or `Dictionary<String, AnyObject>`
      
      */
-    case NoKeyError
+    func toJSON() -> JSON?
     
     /**
+     Convert JSON to Model
      
-     'key' does not exist in `_json`.
+     - Parameter json: JSON string which can be either a Dictionary<String, AnyObject> or Array<AnyObject>.
      
-     - Parameters String: name of key
-     
-     */
-    case KeyNotInJSONError(String)
-    
-    /**
-     
-     There was an error during the mapping process
+     - Throws: MappingError: This is an enumertaion that confroms to ErrorType and defines multiple types of mapping errors - some which include a custom message string.
      
      */
-    case GenericMappingError
-    
-    /**
-     
-     Thrown when `json` is not of type [String: AnyObject] or [AnyObject], which are the only two types a true JSON object could be
-     
-     */
-    case NotAJSONObjectError
-    
-    /**
-     
-     Thrown when not able to map a JSON value to specified type
-     
-     */
-    case NotMappable(String)
-    
-    /**
-     
-     Asked to map a JSON object to an array using `-toArrayOf:` but the JSON object trying to be mapped is not a valid JSON Array.
-     
-     */
-    case NotAnArray
-    
+    init?(json: JSON) throws
 }

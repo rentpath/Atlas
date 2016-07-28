@@ -4,6 +4,37 @@
 <dict>
 	<key>runDestinationsByUUID</key>
 	<dict>
+		<key>60297978-60BC-49CD-8F63-5C4963B1D08E</key>
+		<dict>
+			<key>localComputer</key>
+			<dict>
+				<key>busSpeedInMHz</key>
+				<integer>100</integer>
+				<key>cpuCount</key>
+				<integer>1</integer>
+				<key>cpuKind</key>
+				<string>6-Core Intel Xeon E5</string>
+				<key>cpuSpeedInMHz</key>
+				<integer>3500</integer>
+				<key>logicalCPUCoresPerPackage</key>
+				<integer>12</integer>
+				<key>modelCode</key>
+				<string>MacPro6,1</string>
+				<key>physicalCPUCoresPerPackage</key>
+				<integer>6</integer>
+				<key>platformIdentifier</key>
+				<string>com.apple.platform.macosx</string>
+			</dict>
+			<key>targetArchitecture</key>
+			<string>x86_64</string>
+			<key>targetDevice</key>
+			<dict>
+				<key>modelCode</key>
+				<string>AppleTV5,3</string>
+				<key>platformIdentifier</key>
+				<string>com.apple.platform.appletvsimulator</string>
+			</dict>
+		</dict>
 		<key>A476BB86-BD4D-4823-A2CD-6A6E8C235B38</key>
 		<dict>
 			<key>localComputer</key>
