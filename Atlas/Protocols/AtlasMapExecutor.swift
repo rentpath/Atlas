@@ -20,7 +20,7 @@
  * SOFTWARE.
  */
 
-public protocol AtlasMapExector {
+public protocol AtlasMapExecutor {
 
     var dateMappingExecutor: AtlasDateMappingExecutor? { get }
     

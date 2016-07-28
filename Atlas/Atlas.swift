@@ -26,7 +26,7 @@ public class Atlas {
         let executor = AtlasMappingExecutor()
         return executor
     }()
-    var _executor: AtlasMapExector!
+    var _executor: AtlasMapExecutor!
     var _jsonArray: [JSON]!
     var _jsonObject: [String: JSON]!
     
@@ -35,7 +35,7 @@ public class Atlas {
      
      - Parameter json: A JSON object/array. Use NSJSONSerialization to get the JSON object/array from NSData and then pass the value into Atlas.
      */
-    required public init(_ json: JSON, executor: AtlasMapExector? = nil) throws {
+    required public init(_ json: JSON, executor: AtlasMapExecutor? = nil) throws {
         _executor = executor ?? Atlas._internalExecutor
         switch json {
         case let o as [String: JSON]:

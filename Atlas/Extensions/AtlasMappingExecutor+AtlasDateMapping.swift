@@ -22,17 +22,13 @@
 
 extension AtlasMappingExecutor: AtlasDateMappingExecutor {
     
-    var dateMappingExecutor: AtlasDateMappingExecutor? {
+    public var dateMappingExecutor: AtlasDateMappingExecutor? {
         get {
             return self
         }
     }
     
-    func dateFromKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate? {
-//        guard let key = key else {
-//            throw MappingError.NoKeyError
-//        }
-        
+    public func dateFromKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate? {
         guard let _val = object?[key] as? String where !_val.isEmpty else {
             throw MappingError.NotMappable("The value of key \(key) in the provided JSON object isn't a String and therefore cannot be mapped to an NSDate.")
         }
@@ -44,11 +40,7 @@ extension AtlasMappingExecutor: AtlasDateMappingExecutor {
         return date
     }
     
-    func dateFromOptionalKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate? {
-//        guard let key = key else {
-//            throw MappingError.NoKeyError
-//        }
-        
+    public func dateFromOptionalKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate? {
         guard let _val = object?[key] as? String where !_val.isEmpty else {
             return nil
         }
@@ -59,60 +51,5 @@ extension AtlasMappingExecutor: AtlasDateMappingExecutor {
         
         return date
     }
-    
-    
-    
-    
-    
-    
-    /**
-     
-     Map a RFC3339 date from JSON to Model field
-     
-     - Throws: If `Key` method was not used a `MappingError` may be thrown, also a `MappingError` will be thrown if the value is not a string type
-     
-     - Returns: An Optional NSDate
-     
-     */
-//    func toRFC3339Date() throws -> NSDate? {
-//        return try toDateWithFormat("yyyy-MM-dd'T'HH:mm:ss.S'Z'")
-//    }
-    
-    /**
-     
-     Map a date from JSON to Model field with a given date format string
-     
-     - Parameters format: string representation of the date format
-     
-     - Throws: If `Key` method was not used an `MappingError` may be thrown, also a `MappingError` will be thrown if the value is not a string type
-     
-     - Returns: An Optional NSDate
-     
-     */
-//    func toDateWithFormat(format: String) throws -> NSDate? {
-//        guard let key = key else {
-//            if keyIsOptional {
-//                return nil
-//            } else {
-//                throw MappingError.NoKeyError
-//            }
-//        }
-//        
-//        guard let _val = jsonObject?[key] as? String where !_val.isEmpty else {
-//            
-//            if keyIsOptional {
-//                return nil
-//            } else {
-//                throw MappingError.NotMappable("The value of key \(key) in the provided JSON object isn't a String and therefore cannot be mapped to an NSDate.")
-//            }
-//        }
-//        
-//        guard let date = NSDate.dateFromString(_val, withFormat: .Custom(format)) else {
-//            throw MappingError.NotMappable("The date string \(_val) of key \(key) in the provided JSON object does not match the format \(format)")
-//        }
-//        
-//        return date
-//    }
-//
     
 }
