@@ -97,6 +97,37 @@
 				<string>com.apple.platform.iphonesimulator</string>
 			</dict>
 		</dict>
+		<key>713B3095-6BB9-4F1B-853B-D2747FA69910</key>
+		<dict>
+			<key>localComputer</key>
+			<dict>
+				<key>busSpeedInMHz</key>
+				<integer>100</integer>
+				<key>cpuCount</key>
+				<integer>1</integer>
+				<key>cpuKind</key>
+				<string>6-Core Intel Xeon E5</string>
+				<key>cpuSpeedInMHz</key>
+				<integer>3500</integer>
+				<key>logicalCPUCoresPerPackage</key>
+				<integer>12</integer>
+				<key>modelCode</key>
+				<string>MacPro6,1</string>
+				<key>physicalCPUCoresPerPackage</key>
+				<integer>6</integer>
+				<key>platformIdentifier</key>
+				<string>com.apple.platform.macosx</string>
+			</dict>
+			<key>targetArchitecture</key>
+			<string>x86_64</string>
+			<key>targetDevice</key>
+			<dict>
+				<key>modelCode</key>
+				<string>iPhone8,1</string>
+				<key>platformIdentifier</key>
+				<string>com.apple.platform.iphonesimulator</string>
+			</dict>
+		</dict>
 		<key>E421B99F-9FEA-4A63-B29F-70828124DDF5</key>
 		<dict>
 			<key>localComputer</key>
