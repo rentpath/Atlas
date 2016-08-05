@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1917F2B61D54E43900B2DBB6 /* UInt+AtlasMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1917F2B51D54E43900B2DBB6 /* UInt+AtlasMapTests.swift */; };
+		1917F2BD1D54FD5700B2DBB6 /* AtlasMappingExecutor+AtlasDateMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF687BC1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift */; };
 		196D23311D46AF7D007F8683 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B16891D2EAFA000EEEA1A /* Address.swift */; };
 		196D23321D46AF80007F8683 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168B1D2EB05100EEEA1A /* Photo.swift */; };
 		196D23331D46AF82007F8683 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */; };
@@ -490,6 +491,7 @@
 				196D23591D46B3C2007F8683 /* String+AtlasMap.swift in Sources */,
 				196D23571D46B3C2007F8683 /* NSDate+Extensions.swift in Sources */,
 				196D23531D46B3C2007F8683 /* Float+AtlasMap.swift in Sources */,
+				1917F2BD1D54FD5700B2DBB6 /* AtlasMappingExecutor+AtlasDateMapping.swift in Sources */,
 				196D23621D46B53B007F8683 /* AtlasMap.swift in Sources */,
 				1A2597891D524F5900276A7E /* UInt+AtlasMap.swift in Sources */,
 				1AF952B01CAC448000D44B05 /* Atlas.swift in Sources */,

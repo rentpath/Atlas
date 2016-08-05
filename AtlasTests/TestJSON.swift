@@ -54,7 +54,7 @@ struct TestJSON {
         "first_name": "John",
         "last_name": "Appleseed",
 /*>>>   "email": "john@test.com", Removed for test */
-        "phone": 223344,
+        "phone": 1114445555,
         "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
         "is_active": true,
         "member_since": "2016-01-30T09:19:52.000",
@@ -77,7 +77,7 @@ struct TestJSON {
         "first_name": "John",
         "last_name": "Appleseed",
         "email": "john@test.com",
-        "phone": 223344,
+        "phone": 1114445555,
         "avatar": "https://www.somedomain.com/users/images/asdfa43weefew4ee.jpg",
 /*>>>*/ "is_active": "true", // Changed to "true" for a test
         "member_since": "2016-01-30T09:19:52.000",

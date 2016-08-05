@@ -35,48 +35,15 @@ class AtlasJSONDictionaryTests: XCTestCase {
     }
     
     func testInvalidValueErrorHandling() {
-        var message: String?
         var user: User?
-        do {
-            user = try Atlas(TestJSON.userInvalidValueKey).object()
-        } catch let e as MappingError {
-            switch e {
-            case let .NotMappable(_message):
-                message = _message
-            default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
-                return
-            }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
-            return
-        }
-        
-        XCTAssert(user == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
-        
-//        XCTAssert(message == ".is_active - Unable to map Optional(true) to type Bool")
+        XCTAssertThrowsError(user = try Atlas(TestJSON.userInvalidValueKey).object())
+        XCTAssertNil(user)
     }
     
     func testKeyNotInJSONErrorHandling() {
-        var message: String?
         var user: User?
-        do {
-            user = try Atlas(TestJSON.userMissingKey).object()
-        } catch let e as MappingError {
-            switch e {
-            case let .KeyNotInJSONError(_message):
-                message = _message
-            default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
-                return
-            }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
-            return
-        }
-        
-        XCTAssert(user == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
-//        XCTAssert(message == "Mapping to Int failed. phone is not in the JSON object provided.", "Error handling didn't return the proper error message")
+        XCTAssertThrowsError(user = try Atlas(TestJSON.userMissingKey).object())
+        XCTAssertNil(user)
     }
     
     // Disabled due to massive changes within Atlas that make it no longer able to return an error if the type doesn't match. Instead, an error will only be thrown if a mapping fails, not if a type in the JSON doesn't match the type being mapped to.
