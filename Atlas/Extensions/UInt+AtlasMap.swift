@@ -20,59 +20,14 @@
  * SOFTWARE.
  */
 
-extension Int: AtlasMap {
+extension UInt: AtlasMap {
     
     public func toJSON() -> JSON? {
         return nil
     }
     
     public init?(json: JSON) throws {
-        guard let _int = Int("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int")
-        }
-        self = _int
-    }
-    
-}
-
-extension Int8: AtlasMap {
-    
-    public func toJSON() -> JSON? {
-        return nil
-    }
-    
-    public init?(json: JSON) throws {
-        guard let _int = Int8("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int8")
-        }
-        self = _int
-    }
-    
-}
-
-extension Int16: AtlasMap {
-    
-    public func toJSON() -> JSON? {
-        return nil
-    }
-    
-    public init?(json: JSON) throws {
-        guard let _int = Int16("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int16")
-        }
-        self = _int
-    }
-    
-}
-
-extension Int32: AtlasMap {
-    
-    public func toJSON() -> JSON? {
-        return nil
-    }
-    
-    public init?(json: JSON) throws {
-        guard let _int = Int32("\(json)") else {
+        guard let _int = UInt("\(json)") else {
             throw MappingError.NotMappable("Unable to map \(json) to type Int32")
         }
         self = _int
@@ -80,18 +35,62 @@ extension Int32: AtlasMap {
     
 }
 
-extension Int64: AtlasMap {
+extension UInt8: AtlasMap {
     
     public func toJSON() -> JSON? {
         return nil
     }
     
     public init?(json: JSON) throws {
-        guard let _int = Int64("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int64")
+        guard let _int = UInt8("\(json)") else {
+            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
         }
         self = _int
     }
     
 }
 
+extension UInt16: AtlasMap {
+    
+    public func toJSON() -> JSON? {
+        return nil
+    }
+    
+    public init?(json: JSON) throws {
+        guard let _int = UInt16("\(json)") else {
+            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+        }
+        self = _int
+    }
+    
+}
+
+extension UInt32: AtlasMap {
+    
+    public func toJSON() -> JSON? {
+        return nil
+    }
+    
+    public init?(json: JSON) throws {
+        guard let _int = UInt32("\(json)") else {
+            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+        }
+        self = _int
+    }
+    
+}
+
+extension UInt64: AtlasMap {
+    
+    public func toJSON() -> JSON? {
+        return nil
+    }
+    
+    public init?(json: JSON) throws {
+        guard let _int = UInt64("\(json)") else {
+            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+        }
+        self = _int
+    }
+    
+}
