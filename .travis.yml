@@ -15,7 +15,7 @@ before_install:
 before_script:
   - carthage bootstrap --use-ssh --platform iOS
 script: 
-  - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "name=iPhone 6" build test | xcpretty -c
+  - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "name=iPhone 6" build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
 before_deploy:
   - carthage build --no-skip-current --platform iOS
   - carthage archive $FRAMEWORK_NAME
