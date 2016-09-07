@@ -34,7 +34,7 @@ public protocol AtlasDateMappingExecutor {
      
      - Returns: An Optional NSDate
      */
-    func dateFromKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate?
+    func dateFromKey(_ key: String, toDateWithFormat format: Date.DateFormat, withinJSONObject object: [String: JSON]?) throws -> Date?
     
     /**
      Optionally map a date string to an instance of NSDate
@@ -48,5 +48,5 @@ public protocol AtlasDateMappingExecutor {
      
      - Returns: An Optional NSDate
      */
-    func dateFromOptionalKey(key: String, toDateWithFormat format: NSDate.DateFormat, withinJSONObject object: [String: JSON]?) throws -> NSDate?
+    func dateFromOptionalKey(_ key: String, toDateWithFormat format: Date.DateFormat, withinJSONObject object: [String: JSON]?) throws -> Date?
 }

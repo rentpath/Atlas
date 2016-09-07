@@ -22,7 +22,7 @@ struct User {
     let phone: Int?
     let avatarURL: String?
     let isActive: Bool
-    let memberSince: NSDate?
+    let memberSince: Date?
     let address: Address?
     let photos: [Photo]?
     let floorPlans: [FloorPlan]?
@@ -44,7 +44,7 @@ extension User: AtlasMap {
             phone = try map.objectFromOptionalKey("phone")
             avatarURL = try map.objectFromOptionalKey("avatar")
             isActive = try map.objectFromKey("is_active")
-            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .RFC3339)
+            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .rfc3339)
             address = try map.objectFromOptionalKey("address")
             photos = try map.arrayFromOptionalKey("photos")
             floorPlans = try map.arrayFromOptionalKey("floorplans")
@@ -67,7 +67,7 @@ struct UserNoKey {
     let phone: Int?
     let avatarURL: String?
     let isActive: Bool
-    let memberSince: NSDate?
+    let memberSince: Date?
     
 }
 
@@ -86,7 +86,7 @@ extension UserNoKey: AtlasMap {
             phone = try map.objectFromOptionalKey("phone")
             avatarURL = try map.objectFromOptionalKey("avatar")
             isActive = try map.objectFromKey("is_active")
-            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .RFC3339)
+            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .rfc3339)
         } catch let e {
             throw e
         }

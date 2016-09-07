@@ -28,7 +28,7 @@ extension UInt: AtlasMap {
     
     public init?(json: JSON) throws {
         guard let _int = UInt("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+            throw MappingError.notMappable("Unable to map \(json) to type Int32")
         }
         self = _int
     }
@@ -43,7 +43,7 @@ extension UInt8: AtlasMap {
     
     public init?(json: JSON) throws {
         guard let _int = UInt8("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+            throw MappingError.notMappable("Unable to map \(json) to type Int32")
         }
         self = _int
     }
@@ -58,7 +58,7 @@ extension UInt16: AtlasMap {
     
     public init?(json: JSON) throws {
         guard let _int = UInt16("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+            throw MappingError.notMappable("Unable to map \(json) to type Int32")
         }
         self = _int
     }
@@ -73,7 +73,7 @@ extension UInt32: AtlasMap {
     
     public init?(json: JSON) throws {
         guard let _int = UInt32("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+            throw MappingError.notMappable("Unable to map \(json) to type Int32")
         }
         self = _int
     }
@@ -88,7 +88,7 @@ extension UInt64: AtlasMap {
     
     public init?(json: JSON) throws {
         guard let _int = UInt64("\(json)") else {
-            throw MappingError.NotMappable("Unable to map \(json) to type Int32")
+            throw MappingError.notMappable("Unable to map \(json) to type Int32")
         }
         self = _int
     }

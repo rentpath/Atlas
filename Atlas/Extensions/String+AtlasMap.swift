@@ -27,7 +27,7 @@ extension String: AtlasMap {
     }
     
     public init?(json: JSON) {
-        self = String(json)
+        self = String(describing:json)
     }
     
 }
