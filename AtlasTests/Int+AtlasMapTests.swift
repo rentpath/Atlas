@@ -24,15 +24,15 @@ class Int_AtlasMapTests: XCTestCase {
         let i16: Int16 = 7028
         let i32: Int32 = 702888806
         let i64: Int64 = 70288880664460
-        let dict: [String: AnyObject] = [
-            "i": NSNumber(long: i),
-            "i8": NSNumber(char: i8),
-            "i16": NSNumber(short: i16),
-            "i32": NSNumber(int: i32),
-            "i64": NSNumber(longLong: i64)
+        let dict: [String: Any] = [
+            "i": NSNumber(value: i as Int),
+            "i8": NSNumber(value: i8 as Int8),
+            "i16": NSNumber(value: i16 as Int16),
+            "i32": NSNumber(value: i32 as Int32),
+            "i64": NSNumber(value: i64 as Int64)
         ]
-        let data = try! NSJSONSerialization.dataWithJSONObject(dict, options: NSJSONWritingOptions(rawValue: 0))
-        json = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+        let data = try! JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
+        json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as JSON!
     }
     
     override func tearDown() {
@@ -45,38 +45,38 @@ class Int_AtlasMapTests: XCTestCase {
         let zero = 0
         let max = Int.max
         
-        XCTAssertEqual(try! Int(json: min), Int.min)
-        XCTAssertEqual(try! Int(json: zero), 0)
-        XCTAssertEqual(try! Int(json: max), Int.max)
+        XCTAssertEqual(Int(min), Int.min)
+        XCTAssertEqual(Int(zero), 0)
+        XCTAssertEqual(Int(max), Int.max)
     }
     
     func testIntMappingPerformance() {
-        self.measureBlock {
+        self.measure {
             for _ in 0..<100_000 {
-                let _ = try! Int(json: 702888806)
+                let _ = Int(702888806)
             }
         }
     }
     
     func testIntMappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int(json: json["i"]))
+        XCTAssertNotNil(try Int(json: (json as AnyObject)["i"]))
     }
     
     
     func testInt64MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int64(json: json["i64"]))
+        XCTAssertNotNil(try Int64(json: (json as AnyObject)["i64"]))
     }
     
     func testInt32MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int32(json: json["i32"]))
+        XCTAssertNotNil(try Int32(json: (json as AnyObject)["i32"]))
     }
     
     func testInt16MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int16(json: json["i16"]))
+        XCTAssertNotNil(try Int16(json: (json as AnyObject)["i16"]))
     }
     
     func testInt8MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int8(json: json["i8"]))
+        XCTAssertNotNil(try Int8(json: (json as AnyObject)["i8"]))
     }
 
 }

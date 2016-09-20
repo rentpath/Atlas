@@ -20,9 +20,9 @@
  * SOFTWARE.
  */
 
-public class Atlas {
+open class Atlas {
     
-    static private let _internalExecutor: AtlasMappingExecutor = {
+    static fileprivate let _internalExecutor: AtlasMappingExecutor = {
         let executor = AtlasMappingExecutor()
         return executor
     }()
@@ -40,10 +40,10 @@ public class Atlas {
         switch json {
         case let o as [String: JSON]:
             _jsonObject = o.cleaned()
-        case let a as [AnyObject]:
+        case let a as [Any]:
             _jsonArray = a
         default:
-            throw MappingError.NotAJSONObjectError
+            throw MappingError.notAJSONObjectError
         }
     }
     
@@ -51,7 +51,7 @@ public class Atlas {
     //MARK: Top level object mapping - key not required
     /////////////////////////////////////////////////////
     
-    public func object<T: AtlasMap>() throws -> T? {
+    open func object<T: AtlasMap>() throws -> T? {
         do {
             return try _executor.object(_jsonObject)
         } catch {
@@ -59,7 +59,7 @@ public class Atlas {
         }
     }
     
-    public func array<T: AtlasMap>() throws -> [T]? {
+    open func array<T: AtlasMap>() throws -> [T]? {
         do {
             return try _executor.array(_jsonArray)
         } catch {
@@ -71,7 +71,7 @@ public class Atlas {
     //MARK: Required Sub-object mapping - key required
     /////////////////////////////////////////////////////
     
-    public func objectFromKey<T: AtlasMap>(key: String) throws -> T {
+    open func objectFromKey<T: AtlasMap>(_ key: String) throws -> T {
         do {
             return try _executor.objectFromKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -80,7 +80,7 @@ public class Atlas {
     }
     
     
-    public func arrayFromKey<T: AtlasMap>(key: String) throws -> [T] {
+    open func arrayFromKey<T: AtlasMap>(_ key: String) throws -> [T] {
         do {
             return try _executor.arrayFromKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -92,7 +92,7 @@ public class Atlas {
     //MARK: Optional Sub-object mapping - key required
     /////////////////////////////////////////////////////
     
-    public func objectFromOptionalKey<T: AtlasMap>(key: String) throws -> T? {
+    open func objectFromOptionalKey<T: AtlasMap>(_ key: String) throws -> T? {
         do {
             return try _executor.objectFromOptionalKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -100,7 +100,7 @@ public class Atlas {
         }
     }
     
-    public func arrayFromOptionalKey<T: AtlasMap>(key: String) throws -> [T]? {
+    open func arrayFromOptionalKey<T: AtlasMap>(_ key: String) throws -> [T]? {
         do {
             return try _executor.arrayFromOptionalKey(key, withinJSONObject: _jsonObject)
         } catch {
@@ -112,7 +112,7 @@ public class Atlas {
     //MARK: Date mapping - key required
     /////////////////////////////////////////////////////
     
-    public func dateFromKey(key: String, usingFormat format: NSDate.DateFormat) throws -> NSDate? {
+    open func dateFromKey(_ key: String, usingFormat format: Date.DateFormat) throws -> Date? {
         do {
             return try _executor.dateMappingExecutor?.dateFromKey(key, toDateWithFormat: format, withinJSONObject: _jsonObject)
         } catch {
@@ -124,7 +124,7 @@ public class Atlas {
     //MARK: Date mapping - key not required
     /////////////////////////////////////////////////////
     
-    public func dateFromOptionalKey(key: String, usingFormat format: NSDate.DateFormat) throws -> NSDate? {
+    open func dateFromOptionalKey(_ key: String, usingFormat format: Date.DateFormat) throws -> Date? {
         do {
             return try _executor.dateMappingExecutor?.dateFromOptionalKey(key, toDateWithFormat: format, withinJSONObject: _jsonObject)
         } catch {

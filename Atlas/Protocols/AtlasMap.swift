@@ -21,14 +21,14 @@
  */
 
 
-/// A simple typealias used to make the initializer of RPJSONMappable more descriptive as to the type of object passed in. That is, it is a JSON response which can be either a Dictionary<String, AnyObject> or Array<AnyObject>.
-public typealias JSON = AnyObject
+/// A simple typealias used to make the initializer of RPJSONMappable more descriptive as to the type of object passed in. That is, it is a JSON response which can be either a Dictionary<String, Any> or Array<Any>.
+public typealias JSON = Any
 
 public protocol AtlasMap {
     /**
      Converts model to JSON
      
-     - Returns: JSON (AKA AnyObject) since valid JSON can be either an `Array<AnyObject>` or `Dictionary<String, AnyObject>`
+     - Returns: JSON (AKA Any) since valid JSON can be either an `Array<Any>` or `Dictionary<String, Any>`
      
      */
     func toJSON() -> JSON?
@@ -36,7 +36,7 @@ public protocol AtlasMap {
     /**
      Convert JSON to Model
      
-     - Parameter json: JSON string which can be either a Dictionary<String, AnyObject> or Array<AnyObject>.
+     - Parameter json: JSON string which can be either a Dictionary<String, Any> or Array<Any>.
      
      - Throws: MappingError: This is an enumertaion that confroms to ErrorType and defines multiple types of mapping errors - some which include a custom message string.
      

@@ -27,31 +27,31 @@ public protocol AtlasMapExecutor {
     /**
      Used to map a top-level JSON object to an instance of `T`
      */
-    func object<T: AtlasMap>(object: [String: JSON]?) throws -> T?
+    func object<T: AtlasMap>(_ object: [String: JSON]?) throws -> T?
     
     /**
      Used to map a top-level JSON array to an instance of `[T]`
      */
-    func array<T: AtlasMap>(array: [JSON]?) throws -> [T]?
+    func array<T: AtlasMap>(_ array: [JSON]?) throws -> [T]?
     
     /**
      Used to map the value of `key` within `object` to an instance of `T`
      */
-    func objectFromKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> T
+    func objectFromKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> T
     
     /**
      Used to map the value of `key` within `object` to an instance of `[T]`
      */
-    func arrayFromKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> [T]
+    func arrayFromKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> [T]
     
     /**
      Used to map the value of `key` within `object` to an instance of `T`
      */
-    func objectFromOptionalKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> T?
+    func objectFromOptionalKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> T?
     
     /**
      Used to map the value of `key` within `object` to an instance of `[T]`
      */
-    func arrayFromOptionalKey<T: AtlasMap>(key: String, withinJSONObject object: [String: JSON]?) throws -> [T]?
+    func arrayFromOptionalKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> [T]?
     
 }

@@ -18,7 +18,7 @@ class AtlasJSONDictionaryTests: XCTestCase {
     func testJSONDictionaryParsing() {
         let user: User
         do {
-            user = try Atlas(TestJSON.user).object()!
+            user = try Atlas(TestJSON.user as JSON).object()!
         } catch let e {
             XCTFail("Unexpected Mapping error occurred: \(e)")
             return
@@ -30,19 +30,19 @@ class AtlasJSONDictionaryTests: XCTestCase {
         XCTAssertTrue(user.phone == TestJSON.user["phone"] as? Int)
         XCTAssertTrue(user.avatarURL == TestJSON.user["avatar"] as? String)
         XCTAssertTrue(user.isActive == TestJSON.user["is_active"] as? Bool)
-        let date = NSDate.dateFromRFC3339String(TestJSON.user["member_since"] as! String)
+        let date = Date.dateFromRFC3339String(TestJSON.user["member_since"] as! String)
         XCTAssertTrue(user.memberSince == date)
     }
     
     func testInvalidValueErrorHandling() {
         var user: User?
-        XCTAssertThrowsError(user = try Atlas(TestJSON.userInvalidValueKey).object())
+        XCTAssertThrowsError(user = try Atlas(TestJSON.userInvalidValueKey as JSON).object())
         XCTAssertNil(user)
     }
     
     func testKeyNotInJSONErrorHandling() {
         var user: User?
-        XCTAssertThrowsError(user = try Atlas(TestJSON.userMissingKey).object())
+        XCTAssertThrowsError(user = try Atlas(TestJSON.userMissingKey as JSON).object())
         XCTAssertNil(user)
     }
     
@@ -51,10 +51,10 @@ class AtlasJSONDictionaryTests: XCTestCase {
         var message: String?
         var user: User?
         do {
-            user = try Atlas(TestJSON.jsonDictionaryDifferentType).object()
+            user = try Atlas(TestJSON.jsonDictionaryDifferentType as JSON).object()
         } catch let e as MappingError {
             switch e {
-            case let .NotMappable(_message):
+            case let .notMappable(_message):
                 message = "User\(_message)"
             default:
                 XCTFail("Unexpected Mapping error occurred: \(e)")
@@ -73,10 +73,10 @@ class AtlasJSONDictionaryTests: XCTestCase {
         var message: String?
         var user: UserNoKey?
         do {
-            user = try Atlas(TestJSON.user).object()
+            user = try Atlas(TestJSON.user as JSON).object()
         } catch let e as MappingError {
             switch e {
-            case let .KeyNotInJSONError(_message):
+            case let .keyNotInJSONError(_message):
                 message = "User\(_message)"
             default:
                 XCTFail("Unexpected Mapping error occurred: \(e)")
@@ -92,14 +92,14 @@ class AtlasJSONDictionaryTests: XCTestCase {
     }
     
     func testPerformanceExample() {
-        let before = NSDate()
-        self.measureBlock {
+        let before = Date()
+        self.measure {
             do {
-                let _: [User] = try Atlas(TestJSON.users).array()!
+                let _: [User] = try Atlas(TestJSON.users as JSON).array()!
             } catch let e {
                 XCTFail("Unexpected Mapping error occurred: \(e)")
             }
         }
-        print("Time: \(NSDate().timeIntervalSinceDate(before))")
+        print("Time: \(Date().timeIntervalSince(before))")
     }
 }
