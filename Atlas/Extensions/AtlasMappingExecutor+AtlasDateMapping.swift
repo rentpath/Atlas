@@ -20,6 +20,8 @@
  * SOFTWARE.
  */
 
+import Foundation
+
 extension AtlasMappingExecutor: AtlasDateMappingExecutor {
     
     public var dateMappingExecutor: AtlasDateMappingExecutor? {

@@ -50,7 +50,7 @@
 		1AF9528E1CAC152B00D44B05 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9528D1CAC152B00D44B05 /* User.swift */; };
 		1AF952901CAC1D6400D44B05 /* AtlasJSONArrayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9528F1CAC1D6400D44B05 /* AtlasJSONArrayTests.swift */; };
 		1AF952991CAC446B00D44B05 /* AtlasTV.h in Headers */ = {isa = PBXBuildFile; fileRef = 1AF952981CAC446B00D44B05 /* AtlasTV.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1AF952A01CAC446B00D44B05 /* AtlasTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF952961CAC446B00D44B05 /* AtlasTV.framework */; };
+		1AF952A01CAC446B00D44B05 /* Atlas.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AF952961CAC446B00D44B05 /* Atlas.framework */; };
 		1AF952A51CAC446B00D44B05 /* AtlasTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952A41CAC446B00D44B05 /* AtlasTVTests.swift */; };
 		1AF952B01CAC448000D44B05 /* Atlas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF9527F1CABF81900D44B05 /* Atlas.swift */; };
 		1AF952B11CAC448000D44B05 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF952851CAC08D900D44B05 /* MappingError.swift */; };
@@ -107,7 +107,7 @@
 		1AF952891CAC103800D44B05 /* TestJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TestJSON.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1AF9528D1CAC152B00D44B05 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1AF9528F1CAC1D6400D44B05 /* AtlasJSONArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasJSONArrayTests.swift; sourceTree = "<group>"; };
-		1AF952961CAC446B00D44B05 /* AtlasTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AtlasTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1AF952961CAC446B00D44B05 /* Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF952981CAC446B00D44B05 /* AtlasTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtlasTV.h; sourceTree = "<group>"; };
 		1AF9529A1CAC446B00D44B05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AF9529F1CAC446B00D44B05 /* AtlasTVTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlasTVTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AF952A01CAC446B00D44B05 /* AtlasTV.framework in Frameworks */,
+				1AF952A01CAC446B00D44B05 /* Atlas.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,7 +191,7 @@
 			children = (
 				1AF952621CABF52A00D44B05 /* Atlas.framework */,
 				1AF9526C1CABF52A00D44B05 /* AtlasTests.xctest */,
-				1AF952961CAC446B00D44B05 /* AtlasTV.framework */,
+				1AF952961CAC446B00D44B05 /* Atlas.framework */,
 				1AF9529F1CAC446B00D44B05 /* AtlasTVTests.xctest */,
 			);
 			name = Products;
@@ -343,7 +343,7 @@
 			);
 			name = AtlasTV;
 			productName = AtlasTV;
-			productReference = 1AF952961CAC446B00D44B05 /* AtlasTV.framework */;
+			productReference = 1AF952961CAC446B00D44B05 /* Atlas.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1AF9529E1CAC446B00D44B05 /* AtlasTVTests */ = {
@@ -703,7 +703,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Atlas;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -724,7 +724,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Atlas;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;

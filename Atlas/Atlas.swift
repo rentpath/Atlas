@@ -20,6 +20,8 @@
  * SOFTWARE.
  */
 
+import Foundation
+
 open class Atlas {
     
     static fileprivate let _internalExecutor: AtlasMappingExecutor = {
