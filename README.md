@@ -10,7 +10,7 @@ An extremely easy-to-use and lightweight JSON mapping library for iOS and tvOS w
 ### Carthage
 To install this library via Carthage, just add the following to your `Cartfile`:
 ```bash
-github "rentpath/Atlas" ~> 1.0
+github "rentpath/Atlas" ~> 2.0
 ```
 
 ### Submodule
@@ -42,9 +42,9 @@ static let userJSON: [String: AnyObject] = [
     "member_since": "2016-01-30T09:19:52.000"
 ]
 
-let user: User
+let user: User?
 do {
-    user = try Atlas(userJSON).to(User)!
+    user = try Atlas(userJSON).object()
 } catch let error {
     // do something with the error
 }
@@ -77,9 +77,9 @@ static let usersJSON: [AnyObject] = [
     ]
 ]
 
-let users: [User]
+let users: [User]?
 do {
-    users = try Atlas(usersJSON).toArrayOf(User)!
+    users = try Atlas(usersJSON).array()
 } catch let error {
     // do something with the error
 }
@@ -110,13 +110,13 @@ extension User: AtlasMap {
     init?(json: JSON) throws {
         do {
             let map = try Atlas(json)
-            firstName = try map.key("first_name").to(String)
-            lastName = try map.key("last_name").to(String)
-            email = try map.key("email").to(String) ?? ""
-            phone = try map.key("phone").to(Int)
-            avatarURL = try map.key("avatar").to(String)
-            isActive = try map.key("is_active").to(Bool) ?? false
-            memberSince = try map.key("member_since").toRFC3339Date()
+            firstName = try map.objectFromOptionalKey("first_name")
+            lastName = try map.key("last_name")
+            email = try map.objectFromKey("email")
+            phone = try map.objectFromOptionalKey("phone")
+            avatarURL = try map.objectFromOptionalKey("avatar")
+            isActive = try map.objectFromKey("is_active")
+            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .RFC3339)
         } catch let e {
             throw e
         }
