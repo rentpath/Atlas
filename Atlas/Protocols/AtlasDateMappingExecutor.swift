@@ -21,32 +21,32 @@
  */
 
 public protocol AtlasDateMappingExecutor {
-    
+
     /**
      Map a date string to an instance of NSDate
      
      - Parameters:
-        - key: The String to use to pull the value from `object`
+        - key: The String to use to pull the value from `json`
         - format: String repesenting the date format to use when parsing the date string
         - object: The Dictonary<String, JSON> used with `key` to pull the value from
      
-     - Throws: Will throw a `MappingError` if the `key` doesn't exist within `object`.  Also will throw a `MappingError` if the value of `key` in `object` is not a string type
+     - Throws: A `MappingError` if the `key` doesn't exist within `json` or the value of `key` in `json` is not a String type
      
      - Returns: An Optional NSDate
      */
-    func dateFromKey(_ key: String, toDateWithFormat format: Date.DateFormat, withinJSONObject object: [String: JSON]?) throws -> Date?
-    
+    func date(for key: String, to format: Date.DateFormat, from json: [String: JSON]?) throws -> Date?
+
     /**
      Optionally map a date string to an instance of NSDate
      
      - Parameters:
-        - key: The String to use to pull the value from `object`
+        - key: The String to use to pull the value from `json`
         - format: String repesenting the date format to use when parsing the date string
         - object: The Dictonary<String, JSON> used with `key` to pull the value from
      
-     - Throws: A `MappingError` will be thrown if the value of `key` in `object` is not a string type
+     - Throws: A `MappingError` will be thrown if the value of `key` in `json` is not a string type
      
      - Returns: An Optional NSDate
      */
-    func dateFromOptionalKey(_ key: String, toDateWithFormat format: Date.DateFormat, withinJSONObject object: [String: JSON]?) throws -> Date?
+    func date(forOptional key: String, to format: Date.DateFormat, from json: [String: JSON]?) throws -> Date?
 }

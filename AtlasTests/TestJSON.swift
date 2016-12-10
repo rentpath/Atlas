@@ -7,7 +7,7 @@
 //
 
 struct TestJSON {
-    
+
     static let address: [String: Any] = [
         "number": 123,
         "street": "Main St",
@@ -15,15 +15,15 @@ struct TestJSON {
         "state": "GA",
         "zip": "12345"
     ]
-    
+
     static let floorplans: [Any] = [
         fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan, fplan
     ]
-    
+
     static let photos: [Any] = [
         photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo, photo
     ]
-    
+
     static let user: [String: Any] = [
         "first_name": "John",
         "last_name": "Appleseed",
@@ -35,13 +35,13 @@ struct TestJSON {
         "address": address,
         "floorplans": floorplans,
         "photos": photos
-            
+
     ]
-    
+
     static let users: [[String: Any]] = [
         user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user, user
     ]
-    
+
     static let fplan: [String: Any] = [
         "name": "Foo",
         "photos": photos,
@@ -49,12 +49,12 @@ struct TestJSON {
         "beds": 2,
         "baths": 1
     ]
-    
+
     static let photo: [String: Any] = [
         "abstract": "Something about this photo...",
         "url": "/img/shdhiwieo9weoidifhowedhdw/"
     ]
-    
+
     static let userMissingKey: [String: Any] = [
         "first_name": "John",
         "last_name": "Appleseed",
@@ -67,7 +67,7 @@ struct TestJSON {
         "floorplans": floorplans,
         "photos": photos
     ]
-    
+
     static let userInvalidValueKey: [String: Any] = [
         "first_name": "John",
         "last_name": "Appleseed",
@@ -80,7 +80,7 @@ struct TestJSON {
         "floorplans": floorplans,
         "photos": photos
     ]
-    
+
     static let jsonDictionaryDifferentType: [String: Any] = [
         "first_name": "John",
         "last_name": "Appleseed",
@@ -93,17 +93,17 @@ struct TestJSON {
         "floorplans": floorplans,
         "photos": photos
     ]
-    
+
     static let jsonArray: [Any] = [
         user, user, user
     ]
-    
+
     static let jsonArrayMissingKey: [Any] = [
         userMissingKey, user, user
     ]
-    
+
     static let jsonArrayDifferentType: [Any] = [
         jsonDictionaryDifferentType, user, user
     ]
-    
+
 }

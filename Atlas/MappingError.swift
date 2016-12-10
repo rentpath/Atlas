@@ -21,14 +21,14 @@
  */
 
 public enum MappingError: Error {
-    
+
     /**
      
      There is no key available. Please make sure you first call `-key:` and pass the key that corresponds to the value in JSON you want to map.
      
      */
     case noKeyError
-    
+
     /**
      
      'key' does not exist in `_json`.
@@ -37,33 +37,33 @@ public enum MappingError: Error {
      
      */
     case keyNotInJSONError(String)
-    
+
     /**
      
      There was an error during the mapping process
      
      */
     case genericMappingError
-    
+
     /**
      
      Thrown when `json` is not of type [String: Any] or [Any], which are the only two types a true JSON object could be
      
      */
     case notAJSONObjectError
-    
+
     /**
      
      Thrown when not able to map a JSON value to specified type
      
      */
     case notMappable(String)
-    
+
     /**
      
      Asked to map a JSON object to an array using `-toArrayOf:` but the JSON object trying to be mapped is not a valid JSON Array.
      
      */
     case notAnArray
-    
+
 }

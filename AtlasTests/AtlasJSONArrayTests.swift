@@ -23,7 +23,7 @@ class AtlasJSONArrayTests: XCTestCase {
             XCTFail("Mapping error occurred: \(e)")
             return
         }
-        
+
         XCTAssertTrue(users.first!.firstName == TestJSON.user["first_name"] as? String)
         XCTAssertTrue(users.first!.lastName == TestJSON.user["last_name"] as? String)
         XCTAssertTrue(users.first!.email == TestJSON.user["email"] as? String)
@@ -33,7 +33,7 @@ class AtlasJSONArrayTests: XCTestCase {
 //        let date = NSDate.dateFromRFC3339String(TestJSON.user["member_since"] as! String)
 //        XCTAssertTrue(users.first!.memberSince == date)
     }
-    
+
     func testKeyNotInJSONErrorHandling() {
         var message: String?
         var user: [User]?
@@ -51,11 +51,11 @@ class AtlasJSONArrayTests: XCTestCase {
             XCTFail("Unexpected error occurred: \(e)")
             return
         }
-        
+
         XCTAssert(user == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
         XCTAssert(message == "Mapping to String failed. email is not in the JSON object provided.")
     }
-    
+
     func DISABLED_testNotMappableErrorHandling() {
         var message: String?
         var users: [User]?
@@ -73,11 +73,11 @@ class AtlasJSONArrayTests: XCTestCase {
             XCTFail("Unexpected error occurred: \(e)")
             return
         }
-        
+
         XCTAssert(users == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
         XCTAssert(message == "User.phone - Unable to map Optional(2223334444) to type Int", "Error handling didn't return the proper error message. Received: \(message)")
     }
-    
+
     func testNoMappingKeyProvidedInModelErrorHandling() {
         var message: String?
         var user: [UserNoKey]?
@@ -98,7 +98,7 @@ class AtlasJSONArrayTests: XCTestCase {
         XCTAssert(user == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
         XCTAssert(message == "User.Mapping to String failed. foo is not in the JSON object provided.", "Error handling didn't return the proper error message")
     }
-    
+
     func testNotAnArrayErrorHandling() {
         var message: String?
         var user: [User]?
@@ -116,11 +116,11 @@ class AtlasJSONArrayTests: XCTestCase {
             XCTFail("Unexpected error occurred: \(e)")
             return
         }
-        
+
         XCTAssert(user == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
         XCTAssert(message == "NotAnArray", "Error handling didn't return the proper error message")
     }
-    
+
     func testPerformanceExample() {
         self.measure {
             do {
