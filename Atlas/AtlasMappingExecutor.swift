@@ -21,104 +21,104 @@
  */
 
 open class AtlasMappingExecutor: AtlasMapExecutor {
-    
+
     public init() {
-        
+
     }
-    
+
     open func object<T: AtlasMap>(_ object: [String: JSON]?) throws -> T? {
         guard let unwrappedVal = object else {
             throw MappingError.genericMappingError
         }
-        
+
         guard let mappedObject = try T.init(json: unwrappedVal as JSON) else {
             throw MappingError.notMappable("Unable to map \(object) to type \(T.self)")
         }
-        
+
         return mappedObject
     }
-    
+
     open func array<T: AtlasMap>(_ array: [JSON]?) throws -> [T]? {
         guard let unwrappedArray = array else {
             throw MappingError.notAnArray
         }
-        
+
         var array = [T]()
         for obj in unwrappedArray {
             guard let mappedObj = try T.init(json: obj) else {
                 throw MappingError.notMappable("Unable to map \(array) to type \(T.self)")
             }
-            
+
             array.append(mappedObj)
         }
-        
+
         return array
     }
-    
-    open func objectFromKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> T {
-        guard let unwrappedVal = object?[key] else {
+
+    open func object<T: AtlasMap>(for key: String, from json: [String: JSON]?) throws -> T {
+        guard let unwrappedVal = json?[key] else {
             throw MappingError.keyNotInJSONError("Mapping to \(T.self) failed. \(key) is not in the JSON object provided.")
         }
-        
+
         guard let mappedObject = try T.init(json: unwrappedVal) else {
-            throw MappingError.notMappable(".\(key) - Unable to map \(object) to type \(T.self)")
+            throw MappingError.notMappable(".\(key) - Unable to map \(json) to type \(T.self)")
         }
-        
+
         return mappedObject
     }
-    
-    open func arrayFromKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> [T] {
-        guard let _array = object?[key] else {
+
+    open func array<T: AtlasMap>(for key: String, from json: [String: JSON]?) throws -> [T] {
+        guard let _array = json?[key] else {
             throw MappingError.keyNotInJSONError("Mapping to \(T.self) failed. \(key) is not in the JSON object provided.")
         }
-        
+
         guard let __array = _array as? [JSON] else {
             throw MappingError.notAnArray
         }
-        
+
         var array = [T]()
         for obj in __array {
             guard let mappedObj = try T.init(json: obj) else {
-                throw MappingError.notMappable(".\(key) - Unable to map \(array) to type \(T.self)")
+                throw MappingError.notMappable(".\(key) - Unable to map \(_array) to type \(T.self)")
             }
-            
+
             array.append(mappedObj)
         }
-        
+
         return array
     }
-    
-    open func objectFromOptionalKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> T? {
-        guard let unwrappedVal = object?[key] else {
+
+    open func object<T: AtlasMap>(forOptional key: String, from json: [String: JSON]?) throws -> T? {
+        guard let unwrappedVal = json?[key] else {
             return nil
         }
-        
+
         guard let mappedObject = try T.init(json: unwrappedVal) else {
-            throw MappingError.notMappable(".\(key) - Unable to map \(object) to type \(T.self)")
+            throw MappingError.notMappable(".\(key) - Unable to map \(json) to type \(T.self)")
         }
-        
+
         return mappedObject
     }
-    
-    open func arrayFromOptionalKey<T: AtlasMap>(_ key: String, withinJSONObject object: [String: JSON]?) throws -> [T]? {
-        guard let _array = object?[key] else {
+
+    open func array<T: AtlasMap>(forOptional key: String, from json: [String: JSON]?) throws -> [T]? {
+        guard let _array = json?[key] else {
             return nil
         }
-        
+
         guard let __array = _array as? [JSON] else {
             throw MappingError.notAnArray
         }
-        
+
         var array = [T]()
         for obj in __array {
             guard let mappedObj = try T.init(json: obj) else {
-                throw MappingError.notMappable(".\(key) - Unable to map \(array) to type \(T.self)")
+                throw MappingError.notMappable(".\(key) - Unable to map \(_array) to type \(T.self)")
             }
-            
+
             array.append(mappedObj)
         }
-        
+
         return array
     }
-    
+
 }

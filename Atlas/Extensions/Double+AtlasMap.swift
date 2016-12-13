@@ -21,13 +21,13 @@
  */
 
 extension Double: AtlasMap {
-    
+
     public func toJSON() -> JSON? {
         return nil
     }
-    
+
     public init?(json: JSON) {
         self = Double("\(json)")!
     }
-    
+
 }

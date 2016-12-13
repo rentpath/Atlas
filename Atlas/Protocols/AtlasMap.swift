@@ -20,6 +20,7 @@
  * SOFTWARE.
  */
 
+// swiftlint:disable line_length
 
 /// A simple typealias used to make the initializer of RPJSONMappable more descriptive as to the type of object passed in. That is, it is a JSON response which can be either a Dictionary<String, Any> or Array<Any>.
 public typealias JSON = Any
@@ -32,7 +33,7 @@ public protocol AtlasMap {
      
      */
     func toJSON() -> JSON?
-    
+
     /**
      Convert JSON to Model
      
@@ -43,3 +44,4 @@ public protocol AtlasMap {
      */
     init?(json: JSON) throws
 }
+// swiftlint:enable line_length

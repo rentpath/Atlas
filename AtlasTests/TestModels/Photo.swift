@@ -15,23 +15,23 @@ import Foundation
 #endif
 
 struct Photo {
-    
+
     let abstract: String?
     let urlString: String?
-    
+
 }
 
 extension Photo: AtlasMap {
-    
+
     func toJSON() -> JSON? {
         return nil
     }
-    
+
     init?(json: JSON) throws {
         do {
             let map = try Atlas(json)
-            abstract = try map.objectFromOptionalKey("abstract")
-            urlString = try map.objectFromOptionalKey("url")
+            abstract = try map.object(forOptional: "abstract")
+            urlString = try map.object(forOptional: "url")
         } catch let e {
             throw e
         }

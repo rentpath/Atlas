@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1917F2B61D54E43900B2DBB6 /* UInt+AtlasMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1917F2B51D54E43900B2DBB6 /* UInt+AtlasMapTests.swift */; };
 		1917F2BD1D54FD5700B2DBB6 /* AtlasMappingExecutor+AtlasDateMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF687BC1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift */; };
+		19249C391DFB743B00168993 /* Int+AtlasMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A25978A1D525F9200276A7E /* Int+AtlasMapTests.swift */; };
 		196D23311D46AF7D007F8683 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B16891D2EAFA000EEEA1A /* Address.swift */; };
 		196D23321D46AF80007F8683 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168B1D2EB05100EEEA1A /* Photo.swift */; };
 		196D23331D46AF82007F8683 /* FloorPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */; };
@@ -92,9 +93,9 @@
 		196D23661D46BB48007F8683 /* AtlasDateMappingExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasDateMappingExecutor.swift; sourceTree = "<group>"; };
 		1A2597871D524F5900276A7E /* UInt+AtlasMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UInt+AtlasMap.swift"; sourceTree = "<group>"; };
 		1A25978A1D525F9200276A7E /* Int+AtlasMapTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+AtlasMapTests.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		1A3B16891D2EAFA000EEEA1A /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
-		1A3B168B1D2EB05100EEEA1A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
-		1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloorPlan.swift; sourceTree = "<group>"; };
+		1A3B16891D2EAFA000EEEA1A /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Address.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1A3B168B1D2EB05100EEEA1A /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Photo.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		1A3B168D1D2EB0B800EEEA1A /* FloorPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = FloorPlan.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1AF687BC1D47B34D0012B361 /* AtlasMappingExecutor+AtlasDateMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AtlasMappingExecutor+AtlasDateMapping.swift"; sourceTree = "<group>"; };
 		1AF952621CABF52A00D44B05 /* Atlas.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Atlas.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF952651CABF52A00D44B05 /* Atlas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Atlas.h; sourceTree = "<group>"; };
@@ -105,7 +106,7 @@
 		1AF9527F1CABF81900D44B05 /* Atlas.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Atlas.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1AF952851CAC08D900D44B05 /* MappingError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MappingError.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1AF952891CAC103800D44B05 /* TestJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TestJSON.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		1AF9528D1CAC152B00D44B05 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1AF9528D1CAC152B00D44B05 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = User.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		1AF9528F1CAC1D6400D44B05 /* AtlasJSONArrayTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtlasJSONArrayTests.swift; sourceTree = "<group>"; };
 		1AF952961CAC446B00D44B05 /* AtlasTV.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AtlasTV.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AF952981CAC446B00D44B05 /* AtlasTV.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AtlasTV.h; sourceTree = "<group>"; };
@@ -300,6 +301,7 @@
 				1AF9525E1CABF52A00D44B05 /* Frameworks */,
 				1AF9525F1CABF52A00D44B05 /* Headers */,
 				1AF952601CABF52A00D44B05 /* Resources */,
+				19249C371DFB630700168993 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -336,6 +338,7 @@
 				1AF952921CAC446B00D44B05 /* Frameworks */,
 				1AF952931CAC446B00D44B05 /* Headers */,
 				1AF952941CAC446B00D44B05 /* Resources */,
+				19249C381DFB631900168993 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -441,6 +444,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		19249C371DFB630700168993 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		19249C381DFB631900168993 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1AF9525D1CABF52A00D44B05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -512,6 +546,7 @@
 				1AF952B51CAC452200D44B05 /* TestJSON.swift in Sources */,
 				1AF952B31CAC451D00D44B05 /* AtlasJSONArrayTests.swift in Sources */,
 				1AF952A51CAC446B00D44B05 /* AtlasTVTests.swift in Sources */,
+				19249C391DFB743B00168993 /* Int+AtlasMapTests.swift in Sources */,
 				1AF952B21CAC451B00D44B05 /* AtlasJSONDictionaryTests.swift in Sources */,
 				196D23331D46AF82007F8683 /* FloorPlan.swift in Sources */,
 			);
@@ -706,6 +741,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
@@ -726,6 +762,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
@@ -739,6 +776,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTVTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0.1;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Debug;
@@ -751,6 +789,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rentpath.AtlasTVTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0.1;
 				TVOS_DEPLOYMENT_TARGET = 9.1;
 			};
 			name = Release;
