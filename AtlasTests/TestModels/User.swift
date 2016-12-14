@@ -8,11 +8,7 @@
 
 import Foundation
 
-#if os(tvOS)
-    import AtlasTV
-#else
-    import Atlas
-#endif
+import Atlas
 
 struct User {
 

@@ -20,6 +20,8 @@
  * SOFTWARE.
  */
 
+import Foundation
+
 public extension Dictionary {
 
     /**
