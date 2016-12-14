@@ -7,11 +7,7 @@
 //
 
 import XCTest
-#if os(tvOS)
-    @testable import AtlasTV
-#else
-    @testable import Atlas
-#endif
+@testable import Atlas
 
 class AtlasJSONArrayTests: XCTestCase {
 

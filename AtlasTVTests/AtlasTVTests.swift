@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import AtlasTV
+@testable import Atlas
 
 class AtlasTVTests: XCTestCase {
 
