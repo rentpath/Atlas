@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.2
 env:
   global:
     - ORGANIZATION=rentpath
@@ -10,14 +10,15 @@ env:
     # PIVOTAL_TOKEN
     - secure: "K7Si7+ZfC64TmDg8iyGtfSj1zBMMfutVUJE35J1wlKJOJ9VZobzurYG9VpTliNKtD7JXCA3AI7cSFMw0wLorwqIBBB4J/0vcnpLGs1aWC6Fv3SvvH6y58jyJzILY9GEkY9eRH1VXify0qVn8CoI2ZC3qIpZr5WyGQj/XaoZurXKU6RudeH+9fAIXCL/DvWgKj+o5Fus+/gD9lFBC+wGLq8hKOpn79SU28UQpejH9ToUWOt6huVo3BffgXMHjU+v4qAs5TmasLuosy3Gz9Fdxf/WoKNX3WoKgcTJoV4pQ7FeT9CMNO2QRIyu0T5cig4WwjVvCwlbtO6q6jkgBjCnltvE2YFXn4LDSXMtlB+C1Y2H5JnwDoSuWUt5cqypASGaJBL/oz24BW3WO+mO0x5IEbymZIyDO+A8nuSMZgebbW+RBXHi6eY/W9cinesLn5rX+/mkL3aV73CbSZb0D/zCjQ5hfhQP+79QTo3E/GXqmgQJO+nNi1Iq2RLK2zMt5W0G0s8DL/YARrd+vPT8VuZNLWb0Vy60sawxQhs4zX8YcJ80w0bL1Al6yGcaprSKW3OPwHxDqq4Day4EIEeeEtL8mHmXyh2NtmcGv/u0jhfxG2Fp64SjMldOgZ4wJwJ9a9MPK6AKfHj5DrE4iH1Ton9ty7LjEs3Q6BQ1yIRe6sJiO9a0="
 before_install:
-  # - brew update
-  # - brew outdated carthage || brew upgrade carthage
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+  - brew outdated swiftlint || brew upgrade swiftlint
 before_script:
-  - carthage bootstrap --use-ssh --platform iOS
+  - carthage bootstrap --use-ssh
 script: 
   - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "name=iPhone 7" build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
 before_deploy:
-  - carthage build --no-skip-current --platform iOS
+  - carthage build --no-skip-current
   - carthage archive $FRAMEWORK_NAME
 after_success:
   - sleep 5
