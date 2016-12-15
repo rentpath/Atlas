@@ -14,11 +14,11 @@ before_install:
   - brew outdated carthage || brew upgrade carthage
   - brew outdated swiftlint || brew upgrade swiftlint
 before_script:
-  - carthage bootstrap --use-ssh
+  - carthage bootstrap --use-ssh --platform iOS
 script: 
   - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "name=iPhone 7" build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
 before_deploy:
-  - carthage build --no-skip-current
+  - carthage build --no-skip-current --platform iOS
   - carthage archive $FRAMEWORK_NAME
 after_success:
   - sleep 5
