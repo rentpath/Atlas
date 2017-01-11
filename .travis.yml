@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.1
+osx_image: xcode8.2
 env:
   global:
     - ORGANIZATION=rentpath
@@ -12,13 +12,13 @@ env:
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
-  - brew install swiftlint
+  - brew unlink swiftlint || brew install swiftlint
 before_script:
-  - carthage bootstrap --use-ssh --platform iOS
+  - carthage bootstrap --use-ssh
 script: 
   - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "id=E35A39A9-0197-4428-A846-D75DDE6F0E98" -sdk iphonesimulator build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
 before_deploy:
-  - carthage build --no-skip-current --platform iOS
+  - carthage build --no-skip-current
   - carthage archive $FRAMEWORK_NAME
 after_success:
   - sleep 5
