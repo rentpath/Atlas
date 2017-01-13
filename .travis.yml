@@ -17,8 +17,9 @@ before_script:
   - carthage bootstrap --use-ssh
 script: 
   - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "id=E35A39A9-0197-4428-A846-D75DDE6F0E98" -sdk iphonesimulator build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
+  - xcodebuild -project Atlas.xcodeproj -scheme AtlasTV -destination "name=Apple TV 1080p" -sdk iphonesimulator build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
 before_deploy:
-  - carthage build --no-skip-current
+  - carthage build --no-skip-current --configuration Debug --verbose
   - carthage archive $FRAMEWORK_NAME
 after_success:
   - sleep 5
