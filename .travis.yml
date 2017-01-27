@@ -12,7 +12,6 @@ env:
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
-  - brew unlink swiftlint || brew install swiftlint
 before_script:
   - carthage bootstrap --use-ssh
 script: 

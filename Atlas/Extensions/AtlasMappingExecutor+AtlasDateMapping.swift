@@ -25,9 +25,7 @@ import Foundation
 extension AtlasMappingExecutor: AtlasDateMappingExecutor {
 
     public var dateMappingExecutor: AtlasDateMappingExecutor? {
-        get {
-            return self
-        }
+        return self
     }
 
     public func date(for key: String, to format: Date.DateFormat, from json: [String: JSON]?) throws -> Date? {
