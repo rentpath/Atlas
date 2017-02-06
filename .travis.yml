@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode8.2
+osx_image: xcode8.1
 env:
   global:
     - ORGANIZATION=rentpath
@@ -12,21 +12,13 @@ env:
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
-before_script:
-  - carthage bootstrap --use-ssh
-script: 
-  - xcodebuild -project Atlas.xcodeproj -scheme Atlas -destination "id=E35A39A9-0197-4428-A846-D75DDE6F0E98" -sdk iphonesimulator build test | xcpretty -c; test ${PIPESTATUS[0]} -eq 0
-before_deploy:
-  - carthage build --no-skip-current
-  - carthage archive $FRAMEWORK_NAME
+
+script:
+  - fastlane build --env build
+
 after_success:
-  - sleep 5
-  - git config --global user.email "builds@travis-ci.com"
-  - git config --global user.name "Travis CI"
-  - export OLD_GIT_TAG=$(git tag --sort version:refname | tail -n1)
-  - export NEW_GIT_TAG=$(echo $OLD_GIT_TAG | (IFS=".$IFS" ; read a b c && echo $a.$b.$((c + 1))))
-  - git tag $NEW_GIT_TAG -a -m "Generated tag $NEW_GIT_TAG"
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then git push --quiet https://$GITHUB_ACCESS_TOKEN@github.com/$ORGANIZATION/$REPOSITORY $NEW_GIT_TAG > /dev/null 2>&1; fi
+  - fastlane deploy --env build
+
 deploy:
   provider: releases
   api_key:

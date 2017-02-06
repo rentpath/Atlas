@@ -1,0 +1,96 @@
+# Customise this file, documentation can be found here:
+# https://github.com/fastlane/fastlane/tree/master/fastlane/docs
+# All available actions: https://docs.fastlane.tools/actions
+# can also be listed using the `fastlane actions` command
+
+# Change the syntax highlighting to Ruby
+# All lines starting with a # are ignored when running `fastlane`
+
+# If you want to automatically update fastlane if a new version is available:
+update_fastlane
+
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.111.0"
+
+default_platform :ios
+
+platform :ios do
+  before_all do
+
+    desc "Carthage bootstrap"	
+    carthage(
+	command: "bootstrap",
+	use_ssh: true, 
+	platform: ENV["CarthagePlatform"],
+	use_binaries: false
+    )
+  end
+
+  desc "Runs swift lint"
+  lane :swift_lint do
+    swiftlint(
+  	 config_file: ".swiftlint.yml",
+    )
+  end
+
+  desc "Runs all the tests"
+  lane :test do
+    scan(
+	scheme: ENV["iOSScheme"],
+	clean: true
+    )
+    scan(
+	scheme: ENV["TVScheme"],
+	clean: true
+    )
+  end
+
+  desc "Build project scheme for iOS and tvOS"
+  lane :build do
+     xcodebuild(
+    	project: ENV["ProjectFile"],
+    	scheme: ENV["iOSScheme"],
+        verbose: true,
+    	configuration: ENV["Configuration"],
+    	clean: true,
+    	build: true,
+	sdk: "iphonesimulator",
+    	destination: "id=E35A39A9-0197-4428-A846-D75DDE6F0E98",
+    	build_settings: {
+		"CODE_SIGNING_REQUIRED" => "NO",
+     	 	"CODE_SIGN_IDENTITY" => ""
+    	}
+    )
+
+    xcodebuild(
+        project: ENV["ProjectFile"],
+        scheme: ENV["TVScheme"],
+        verbose: true,
+        configuration: ENV["Configuration"],
+        clean: true,
+        build: true,
+        sdk: "appletvsimulator",
+        destination: "id=E211A072-9222-47AE-BE2B-3182DAE62214",
+        build_settings: {
+                "CODE_SIGNING_REQUIRED" => "NO",
+                "CODE_SIGN_IDENTITY" => ""
+        }
+    )
+
+    # Run Tests for all schemes
+    test
+  end
+
+  desc "Deploy framework"
+  lane :deploy do
+	sh "bash ./deploy.sh"
+  end
+end
+
+
+# More information about multiple platforms in fastlane: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Platforms.md
+# All available actions: https://docs.fastlane.tools/actions
+
+# fastlane reports which actions are used
+# No personal data is recorded. Learn more at https://github.com/fastlane/enhancer
