@@ -11,7 +11,7 @@ update_fastlane
 
 # This is the minimum version number required.
 # Update this, if you use features of a newer version
-fastlane_version "1.111.0"
+fastlane_version "2.13.0"
 
 default_platform :ios
 
@@ -56,7 +56,7 @@ platform :ios do
     	clean: true,
     	build: true,
 	sdk: "iphonesimulator",
-    	destination: "id=E35A39A9-0197-4428-A846-D75DDE6F0E98",
+    	destination: "name=iPhone 7",
     	build_settings: {
 		"CODE_SIGNING_REQUIRED" => "NO",
      	 	"CODE_SIGN_IDENTITY" => ""
@@ -71,7 +71,7 @@ platform :ios do
         clean: true,
         build: true,
         sdk: "appletvsimulator",
-        destination: "id=E211A072-9222-47AE-BE2B-3182DAE62214",
+        destination: "name=Apple TV 1080p",
         build_settings: {
                 "CODE_SIGNING_REQUIRED" => "NO",
                 "CODE_SIGN_IDENTITY" => ""
