@@ -110,13 +110,13 @@ extension User: AtlasMap {
     init?(json: JSON) throws {
         do {
             let map = try Atlas(json)
-            firstName = try map.objectFromOptionalKey("first_name")
-            lastName = try map.key("last_name")
-            email = try map.objectFromKey("email")
-            phone = try map.objectFromOptionalKey("phone")
-            avatarURL = try map.objectFromOptionalKey("avatar")
-            isActive = try map.objectFromKey("is_active")
-            memberSince = try map.dateFromOptionalKey("member_since", usingFormat: .RFC3339)
+            firstName = try map.object(forOptional: "first_name")
+            lastName = try map.object(forOptional: "last_name")
+            email = try map.object(for: "email")
+            phone = try map.object(forOptional: "phone")
+            avatarURL = try map.object(forOptional: "avatar")
+            isActive = try map.object(for: "is_active")
+            memberSince = try map.date(forOptional: "member_since", to: .rfc3339)
         } catch let e {
             throw e
         }
