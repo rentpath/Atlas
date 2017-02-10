@@ -1,4 +1,4 @@
-app_identifier ENV["App_identifer"]# The bundle identifier of your app
+app_identifier ENV["APPIDENTIFER"] # The bundle identifier of your app
 apple_id "aillyas@rentpath.com" # Your Apple email address
 
 team_id "WTY8Y9N84K"  # Developer Portal Team ID
