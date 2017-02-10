@@ -56,4 +56,9 @@ else
     git push origin $1
 fi
 
+echo Do not forget to update the release notes by running the following command:
+echo ./release_notes.sh "<from_tag>" "$1"
+echo "where <from_tag> has the following syntax:"
+echo "major.minor.patch -> example: 1.2.3 and <from_tag> should be older than the new tag $1"
+
 echo Finished releasing $1
