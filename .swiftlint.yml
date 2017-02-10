@@ -1,0 +1,30 @@
+#included: # paths to include during linting. `--path` is ignored if present.
+#  - Source
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - AtlasTests
+  - AtlasTVTests
+variable_name:
+  excluded: # excluded via string array
+    - id
+    - URL
+    - url
+    - os
+line_length: 155
+disabled_rules:
+  - nesting
+opt_in_rules:
+  - conditional_returns_on_newline
+  - redundant_nil_coalesing
+  - switch_case_on_newline
+custom_rules:
+  no_new_lines_in_function_definition: # rule identifier
+    name: "No New Lines In Function Definition"
+    regex: "\(\w+\:\s?[^\n\r\,]+\,\n"
+    message: "Keep function definitions on one line to allow the IDE to wrap as necessary."
+    severity: warning
+  # new_line_after_closure: # rule identifier
+  #   name: "New Line After Closure"
+  #   regex: "\}\n{1}.+?[\w\@]+?"
+  #   message: "There should be a single empty line after each closure definition."
+  #   severity: warning

@@ -20,8 +20,10 @@
  * SOFTWARE.
  */
 
+import Foundation
+
 public extension Dictionary {
-    
+
     /**
      
      Dictionary extention method to remove null values
@@ -39,8 +41,8 @@ public extension Dictionary {
                 cleanedDict[val.0] = val.1
             }
         }
-        
+
         return cleanedDict
     }
-    
+
 }

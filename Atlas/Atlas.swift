@@ -20,117 +20,117 @@
  * SOFTWARE.
  */
 
+import Foundation
+
 open class Atlas {
-    
-    static fileprivate let _internalExecutor: AtlasMappingExecutor = {
+
+    static fileprivate let internalExecutor: AtlasMappingExecutor = {
         let executor = AtlasMappingExecutor()
         return executor
     }()
-    var _executor: AtlasMapExecutor!
-    var _jsonArray: [JSON]!
-    var _jsonObject: [String: JSON]!
-    
+    var executor: AtlasMapExecutor!
+    var jsonArray: [JSON]!
+    var jsonObject: [String: JSON]!
+
     /**
      Designated initializer that accepts JSON
      
      - Parameter json: A JSON object/array. Use NSJSONSerialization to get the JSON object/array from NSData and then pass the value into Atlas.
      */
     required public init(_ json: JSON, executor: AtlasMapExecutor? = nil) throws {
-        _executor = executor ?? Atlas._internalExecutor
+        self.executor = executor ?? Atlas.internalExecutor
         switch json {
-        case let o as [String: JSON]:
-            _jsonObject = o.cleaned()
+        case let o as [String: JSON]: // swiftlint:disable:this switch_case_on_newline
+            jsonObject = o.cleaned()
         case let a as [Any]:
-            _jsonArray = a
+            jsonArray = a
         default:
             throw MappingError.notAJSONObjectError
         }
     }
-    
+
     /////////////////////////////////////////////////////
-    //MARK: Top level object mapping - key not required
+    // MARK: - Top level object mapping - key not required
     /////////////////////////////////////////////////////
-    
+
     open func object<T: AtlasMap>() throws -> T? {
         do {
-            return try _executor.object(_jsonObject)
+            return try executor.object(jsonObject)
         } catch {
             throw error
         }
     }
-    
+
     open func array<T: AtlasMap>() throws -> [T]? {
         do {
-            return try _executor.array(_jsonArray)
+            return try executor.array(jsonArray)
         } catch {
             throw error
         }
     }
-    
-    /////////////////////////////////////////////////////
-    //MARK: Required Sub-object mapping - key required
-    /////////////////////////////////////////////////////
-    
-    open func objectFromKey<T: AtlasMap>(_ key: String) throws -> T {
-        do {
-            return try _executor.objectFromKey(key, withinJSONObject: _jsonObject)
-        } catch {
-            throw error
-        }
-    }
-    
-    
-    open func arrayFromKey<T: AtlasMap>(_ key: String) throws -> [T] {
-        do {
-            return try _executor.arrayFromKey(key, withinJSONObject: _jsonObject)
-        } catch {
-            throw error
-        }
-    }
-    
-    /////////////////////////////////////////////////////
-    //MARK: Optional Sub-object mapping - key required
-    /////////////////////////////////////////////////////
-    
-    open func objectFromOptionalKey<T: AtlasMap>(_ key: String) throws -> T? {
-        do {
-            return try _executor.objectFromOptionalKey(key, withinJSONObject: _jsonObject)
-        } catch {
-            throw error
-        }
-    }
-    
-    open func arrayFromOptionalKey<T: AtlasMap>(_ key: String) throws -> [T]? {
-        do {
-            return try _executor.arrayFromOptionalKey(key, withinJSONObject: _jsonObject)
-        } catch {
-            throw error
-        }
-    }
-    
-    /////////////////////////////////////////////////////
-    //MARK: Date mapping - key required
-    /////////////////////////////////////////////////////
-    
-    open func dateFromKey(_ key: String, usingFormat format: Date.DateFormat) throws -> Date? {
-        do {
-            return try _executor.dateMappingExecutor?.dateFromKey(key, toDateWithFormat: format, withinJSONObject: _jsonObject)
-        } catch {
-            throw error
-        }
-    }
-    
-    /////////////////////////////////////////////////////
-    //MARK: Date mapping - key not required
-    /////////////////////////////////////////////////////
-    
-    open func dateFromOptionalKey(_ key: String, usingFormat format: Date.DateFormat) throws -> Date? {
-        do {
-            return try _executor.dateMappingExecutor?.dateFromOptionalKey(key, toDateWithFormat: format, withinJSONObject: _jsonObject)
-        } catch {
-            throw error
-        }
-    }
-    
-}
 
+    /////////////////////////////////////////////////////
+    // MARK: - Required Sub-object mapping - key required
+    /////////////////////////////////////////////////////
+
+    open func object<T: AtlasMap>(for key: String) throws -> T {
+        do {
+            return try executor.object(for: key, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
+
+    open func array<T: AtlasMap>(for key: String) throws -> [T] {
+        do {
+            return try executor.array(for: key, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
+
+    /////////////////////////////////////////////////////
+    // MARK: - Optional Sub-object mapping - key required
+    /////////////////////////////////////////////////////
+
+    open func object<T: AtlasMap>(forOptional key: String) throws -> T? {
+        do {
+            return try executor.object(forOptional: key, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
+
+    open func array<T: AtlasMap>(forOptional key: String) throws -> [T]? {
+        do {
+            return try executor.array(forOptional: key, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
+
+    /////////////////////////////////////////////////////
+    // MARK: - Date mapping - key required
+    /////////////////////////////////////////////////////
+
+    open func date(for key: String, to format: Date.DateFormat) throws -> Date? {
+        do {
+            return try executor.dateMappingExecutor?.date(for: key, to: format, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
+
+    /////////////////////////////////////////////////////
+    // MARK: - Date mapping - key not required
+    /////////////////////////////////////////////////////
+
+    open func date(forOptional key: String, to format: Date.DateFormat) throws -> Date? {
+        do {
+            return try executor.dateMappingExecutor?.date(forOptional: key, to: format, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
+
+}

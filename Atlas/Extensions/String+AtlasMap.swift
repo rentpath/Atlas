@@ -21,13 +21,13 @@
  */
 
 extension String: AtlasMap {
-    
+
     public func toJSON() -> JSON? {
         return nil
     }
-    
+
     public init?(json: JSON) {
         self = String(describing:json)
     }
-    
+
 }

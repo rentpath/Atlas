@@ -20,12 +20,14 @@
  * SOFTWARE.
  */
 
+import Foundation
+
 public extension Date {
-    
+
     public enum DateFormat {
         case rfc3339, iso8601, custom(String)
     }
-    
+
     fileprivate struct Static {
         static var formatter: DateFormatter = {
             let formatter = DateFormatter()
@@ -33,7 +35,7 @@ public extension Date {
             return formatter
         }()
     }
-    
+
     /**
      
      NSDate extention to convert NSDate to RFC3339 standard (eg: "2016-02-05T12:30:05.123Z").
@@ -46,7 +48,7 @@ public extension Date {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
         return formatter.string(from: self)
     }
-    
+
     /**
      
      NSDate extention to convert NSDate to RFC3339 standard (eg: "2016-02-05T12:30:05.123Z").
@@ -59,7 +61,7 @@ public extension Date {
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
         return formatter.string(from: self)
     }
-    
+
     /**
      
      Convert RFC3339 date string to NSDate
@@ -72,7 +74,7 @@ public extension Date {
     public static func dateFromRFC3339String(_ string: String) -> Date? {
         return dateFromString(string, withFormat: .rfc3339)
     }
-    
+
     /**
      
      Convert date string to date for a given format
@@ -94,8 +96,8 @@ public extension Date {
         case let .custom(_format):
             formatter.dateFormat = _format
         }
-        
+
         return formatter.date(from: dateString)
     }
-    
+
 }
