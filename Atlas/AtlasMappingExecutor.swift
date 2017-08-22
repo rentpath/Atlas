@@ -32,7 +32,7 @@ open class AtlasMappingExecutor: AtlasMapExecutor {
         }
 
         guard let mappedObject = try T.init(json: unwrappedVal as JSON) else {
-            throw MappingError.notMappable("Unable to map \(object) to type \(T.self)")
+            throw MappingError.notMappable("Unable to map \(String(describing: object)) to type \(T.self)")
         }
 
         return mappedObject
@@ -61,7 +61,7 @@ open class AtlasMappingExecutor: AtlasMapExecutor {
         }
 
         guard let mappedObject = try T.init(json: unwrappedVal) else {
-            throw MappingError.notMappable(".\(key) - Unable to map \(json) to type \(T.self)")
+            throw MappingError.notMappable(".\(key) - Unable to map \(String(describing: json)) to type \(T.self)")
         }
 
         return mappedObject
@@ -94,7 +94,7 @@ open class AtlasMappingExecutor: AtlasMapExecutor {
         }
 
         guard let mappedObject = try T.init(json: unwrappedVal) else {
-            throw MappingError.notMappable(".\(key) - Unable to map \(json) to type \(T.self)")
+            throw MappingError.notMappable(".\(key) - Unable to map \(String(describing: json)) to type \(T.self)")
         }
 
         return mappedObject
