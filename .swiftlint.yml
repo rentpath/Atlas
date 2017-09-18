@@ -20,7 +20,7 @@ opt_in_rules:
 custom_rules:
   no_new_lines_in_function_definition: # rule identifier
     name: "No New Lines In Function Definition"
-    regex: "\(\w+\:\s?[^\n\r\,]+\,\n"
+    regex: '\(\w+\:\s?[^\n\r\,]+\,\n'
     message: "Keep function definitions on one line to allow the IDE to wrap as necessary."
     severity: warning
   # new_line_after_closure: # rule identifier
