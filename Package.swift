@@ -4,6 +4,8 @@ let package = Package(
     name: "Atlas",
     exclude: [
         "AtlasTests",
-        "AtlasTVTests"
+        "AtlasTV",
+        "AtlasTVTests",
+        "fastlane"
     ]
 )
