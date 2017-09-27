@@ -75,7 +75,7 @@ platform :ios do
         clean: true,
         build: true,
         sdk: "appletvsimulator",
-        destination: "name=Apple TV 1080p",
+        destination: "name=Apple TV",
         build_settings: {
                 "CODE_SIGNING_REQUIRED" => "NO",
                 "CODE_SIGN_IDENTITY" => ""
