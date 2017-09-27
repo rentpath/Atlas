@@ -6,6 +6,8 @@ let package = Package(
         "AtlasTests",
         "AtlasTV",
         "AtlasTVTests",
-        "fastlane"
+        "fastlane",
+        "AtlasOSX",
+        "AtlasOSXTests"
     ]
 )
