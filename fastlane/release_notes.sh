@@ -18,7 +18,7 @@ else
     echo "<*_tag> -> can also be a SHA -> example 0915fe27c3af54fda7b9d0f79f79a6b4b8a0f7cf -> ./release_notes.sh 0915fe27c3af54fda7b9d0f79f79a6b4b8a0f7cf 1.4.5"
     exit $?
 fi
-ALL_NOTES="## [What's New](https://github.com/$ORGANIZATION/$REPOSITORY/compare/$OLD_GIT_TAG...$NEW_GIT_TAG)\r\n\r\nCommit | Author | Story | Type | Title\r\n------------ | ------------- | ------------- | ------------- | -------------\r\n"
+ALL_NOTES="## [What's New](https://github.com/$ORGANIZATION/$REPOSITORY/compare/$OLD_GIT_TAG...$NEW_GIT_TAG)\r\n\r\nCommit | Author | Card | Type | Title\r\n------------ | ------------- | ------------- | ------------- | -------------\r\n"
 RELEASE_NOTES=$(git log --no-merges --pretty=format:"{\"abbreviated_commit_hash\":\"%h\", \"commit_hash\":\"%H\", \"author_name\":\"%an\", \"subject\":\"%s\"}" $OLD_GIT_TAG...$NEW_GIT_TAG)
 echo "$RELEASE_NOTES" |
 (
@@ -45,21 +45,19 @@ echo "$RELEASE_NOTES" |
         for i in "${!array[@]}"
         do
             echo "$i=>${array[i]}"
-            echo curl -X GET -H "X-TrackerToken: $PIVOTAL_TOKEN" "https://www.pivotaltracker.com/services/v5/stories/${array[i]}"
-            PIVOTAL_RESPONSE=$(curl -X GET -H "X-TrackerToken: $PIVOTAL_TOKEN" "https://www.pivotaltracker.com/services/v5/stories/${array[i]}")
-            if [ -n "$PIVOTAL_RESPONSE" ]; then
+            echo curl -H "Authorization: Basic $LEANKIT_TOKEN" -H "Content-Type: application/json" "https://rentpath.leankit.com/io/card/${array[i]}"
+            LEANKIT_RESPONSE=$(curl -H "Authorization: Basic $LEANKIT_TOKEN" -H "Content-Type: application/json" "https://rentpath.leankit.com/io/card/${array[i]}")
+            if [ -n "$LEANKIT_RESPONSE" ]; then
                 if [ -z "$STORY_TYPES" ]; then
-                    STORY_TYPES=$(echo "$PIVOTAL_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["story_type"]')
-                    STORY_TYPES=$(tr '[:lower:]' '[:upper:]' <<< ${STORY_TYPES:0:1})${STORY_TYPES:1}
+                    STORY_TYPES=$(echo "$LEANKIT_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["type"]["title"]')
                 else
-                    TMP_STORY_TYPE=$(echo "$PIVOTAL_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["story_type"]')
-                    TMP_STORY_TYPE=$(tr '[:lower:]' '[:upper:]' <<< ${TMP_STORY_TYPE:0:1})${TMP_STORY_TYPE:1}
+                    TMP_STORY_TYPE=$(echo "$LEANKIT_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["type"]["title"]')
                     STORY_TYPES=$(echo $STORY_TYPES, $TMP_STORY_TYPE)
                 fi
                 if [ -z "$STORY_LINKS" ]; then
-                	STORY_LINKS=$(echo "[${array[i]}](https://www.pivotaltracker.com/story/show/${array[i]})")
+                	STORY_LINKS=$(echo "[${array[i]}](https://rentpath.leankit.com/card/${array[i]})")
                 else
-                	STORY_LINKS=$(echo "$STORY_LINKS, [${array[i]}](https://www.pivotaltracker.com/story/show/${array[i]})")
+                	STORY_LINKS=$(echo "$STORY_LINKS, [${array[i]}](https://rentpath.leankit.com/card/${array[i]})")
                 fi
             fi
         done
