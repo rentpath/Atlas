@@ -40,7 +40,7 @@ open class Atlas {
     required public init(_ json: JSON, executor: AtlasMapExecutor? = nil) throws {
         self.executor = executor ?? Atlas.internalExecutor
         switch json {
-        case let o as [String: JSON]: // swiftlint:disable:this switch_case_on_newline
+        case let o as [String: JSON]:
             jsonObject = o.cleaned()
         case let a as [Any]:
             jsonArray = a

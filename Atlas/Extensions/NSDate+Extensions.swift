@@ -89,9 +89,7 @@ public extension Date {
     public static func dateFromString(_ dateString: String, withFormat format: DateFormat) -> Date? {
         let formatter = Static.formatter
         switch format {
-        case .rfc3339:
-            fallthrough
-        case .iso8601:
+        case .rfc3339, .iso8601:
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
         case let .custom(_format):
             formatter.dateFormat = _format
