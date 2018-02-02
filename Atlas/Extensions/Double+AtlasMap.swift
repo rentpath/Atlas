@@ -27,7 +27,7 @@ extension Double: AtlasMap {
     }
 
     public init?(json: JSON) {
-        self = Double("\(json)")!
+        self = Double("\(json)") ?? 0
     }
 
 }

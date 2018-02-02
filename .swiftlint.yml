@@ -5,18 +5,28 @@ excluded: # paths to ignore during linting. Takes precedence over `included`.
   - AtlasTests
   - AtlasTVTests
 variable_name:
-  excluded: # excluded via string array
-    - id
-    - URL
-    - url
-    - os
-line_length: 155
+    excluded: # excluded via string array
+        - id
+        - URL
+        - url
+        - on
+        - off
+        - ok
+force_cast: error
+force_try:
+    severity: error
+force_unwrapping: error
 disabled_rules:
-  - nesting
+    - nesting
+    - line_length
+    - trailing_whitespace
 opt_in_rules:
-  - conditional_returns_on_newline
-  - redundant_nil_coalesing
-  - switch_case_on_newline
+    - force_cast
+    - force_try
+    - force_unwrapping
+    - conditional_returns_on_newline
+    - redundant_nil_coalesing
+    - switch_case_on_newline
 custom_rules:
   no_new_lines_in_function_definition: # rule identifier
     name: "No New Lines In Function Definition"

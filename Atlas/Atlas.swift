@@ -40,10 +40,10 @@ open class Atlas {
     required public init(_ json: JSON, executor: AtlasMapExecutor? = nil) throws {
         self.executor = executor ?? Atlas.internalExecutor
         switch json {
-        case let o as [String: JSON]:
-            jsonObject = o.cleaned()
-        case let a as [Any]:
-            jsonArray = a
+        case let dictionaryObject as [String: JSON]:
+            jsonObject = dictionaryObject.cleaned()
+        case let anyArray as [Any]:
+            jsonArray = anyArray
         default:
             throw MappingError.notAJSONObjectError
         }

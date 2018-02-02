@@ -91,8 +91,8 @@ public extension Date {
         switch format {
         case .rfc3339, .iso8601:
             formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
-        case let .custom(_format):
-            formatter.dateFormat = _format
+        case let .custom(dateFormat):
+            formatter.dateFormat = dateFormat
         }
 
         return formatter.date(from: dateString)
