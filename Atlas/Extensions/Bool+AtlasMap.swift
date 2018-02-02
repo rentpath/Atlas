@@ -13,10 +13,10 @@ extension Bool: AtlasMap {
     }
 
     public init?(json: JSON) throws {
-        guard let _bool = json as? Bool else {
+        guard let bool = json as? Bool else {
             return nil
         }
-        self = _bool
+        self = bool
     }
 
 }

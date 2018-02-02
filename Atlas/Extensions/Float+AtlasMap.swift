@@ -27,7 +27,7 @@ extension Float: AtlasMap {
     }
 
     public init?(json: JSON) {
-        self = Float("\(json)")!
+        self = Float("\(json)") ?? 0
     }
 
 }

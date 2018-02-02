@@ -29,13 +29,13 @@ extension AtlasMappingExecutor: AtlasDateMappingExecutor {
     }
 
     public func date(for key: String, to format: Date.DateFormat, from json: [String: JSON]?) throws -> Date? {
-        guard let _val = json?[key] as? String, !_val.isEmpty else {
+        guard let val = json?[key] as? String, !val.isEmpty else {
             let message = "The value of key \(key) in the provided JSON object isn't a String and therefore cannot be mapped to an NSDate."
             throw MappingError.notMappable(message)
         }
 
-        guard let date = Date.dateFromString(_val, withFormat: format) else {
-            let message = "The date string \(_val) of key \(key) in the provided JSON object does not match the RFC3339 format."
+        guard let date = Date.dateFromString(val, withFormat: format) else {
+            let message = "The date string \(val) of key \(key) in the provided JSON object does not match the RFC3339 format."
             throw MappingError.notMappable(message)
         }
 
@@ -43,12 +43,12 @@ extension AtlasMappingExecutor: AtlasDateMappingExecutor {
     }
 
     public func date(forOptional key: String, to format: Date.DateFormat, from json: [String: JSON]?) throws -> Date? {
-        guard let _val = json?[key] as? String, !_val.isEmpty else {
+        guard let val = json?[key] as? String, !val.isEmpty else {
             return nil
         }
 
-        guard let date = Date.dateFromString(_val, withFormat: format) else {
-            let message = "The date string \(_val) of key \(key) in the provided JSON object does not match the RFC3339 format."
+        guard let date = Date.dateFromString(val, withFormat: format) else {
+            let message = "The date string \(val) of key \(key) in the provided JSON object does not match the RFC3339 format."
             throw MappingError.notMappable(message)
         }
 
