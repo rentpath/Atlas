@@ -43,7 +43,6 @@ class UInt_AtlasMapTests: XCTestCase {
         XCTAssertEqual(UInt(min), UInt.min)
         XCTAssertEqual(UInt(max), UInt.max)
     }
-
     func testIntMappingPerformance() {
         self.measure {
             for _ in 0..<100_000 {
