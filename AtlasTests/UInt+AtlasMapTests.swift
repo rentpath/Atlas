@@ -43,7 +43,7 @@ class UInt_AtlasMapTests: XCTestCase {
         XCTAssertEqual(UInt(min), UInt.min)
         XCTAssertEqual(UInt(max), UInt.max)
     }
-    
+
     func testIntMappingPerformance() {
         self.measure {
             for _ in 0..<100_000 {
@@ -53,23 +53,23 @@ class UInt_AtlasMapTests: XCTestCase {
     }
 
     func testUIntMappingThrowsErrorIfUnableToMap() {
-        XCTAssertThrowsError(try UInt(json: (json as AnyObject)["ui"]))
+        XCTAssertNotNil(try UInt(json: (json as AnyObject)["ui"]))
     }
 
     func testUInt64MappingThrowsErrorIfUnableToMap() {
-        XCTAssertThrowsError(try UInt64(json: (json as AnyObject)["ui64"]))
+        XCTAssertNotNil(try UInt64(json: (json as AnyObject)["ui64"]))
     }
 
     func testUInt32MappingThrowsErrorIfUnableToMap() {
-        XCTAssertThrowsError(try UInt32(json: (json as AnyObject)["ui32"]))
+        XCTAssertNotNil(try UInt32(json: (json as AnyObject)["ui32"]))
     }
 
     func testUInt16MappingThrowsErrorIfUnableToMap() {
-        XCTAssertThrowsError(try UInt16(json: (json as AnyObject)["ui16"]))
+        XCTAssertNotNil(try UInt16(json: (json as AnyObject)["ui16"]))
     }
 
     func testUInt8MappingThrowsErrorIfUnableToMap() {
-        XCTAssertThrowsError(try UInt8(json: (json as AnyObject)["ui8"]))
+        XCTAssertNotNil(try UInt8(json: (json as AnyObject)["ui8"]))
     }
 
 }
