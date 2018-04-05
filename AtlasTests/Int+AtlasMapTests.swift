@@ -55,23 +55,23 @@ class Int_AtlasMapTests: XCTestCase {
     }
 
     func testIntMappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int(json: (json as AnyObject)["i"]))
+        XCTAssertThrowsError(try Int(json: (json as AnyObject)["i"]))
     }
 
     func testInt64MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int64(json: (json as AnyObject)["i64"]))
+        XCTAssertThrowsError(try Int64(json: (json as AnyObject)["i64"]))
     }
 
     func testInt32MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int32(json: (json as AnyObject)["i32"]))
+        XCTAssertThrowsError(try Int32(json: (json as AnyObject)["i32"]))
     }
 
     func testInt16MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int16(json: (json as AnyObject)["i16"]))
+        XCTAssertThrowsError(try Int16(json: (json as AnyObject)["i16"]))
     }
 
     func testInt8MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int8(json: (json as AnyObject)["i8"]))
+        XCTAssertThrowsError(try Int8(json: (json as AnyObject)["i8"]))
     }
 
 }

@@ -27,8 +27,8 @@ extension Photo: AtlasMap {
             let map = try Atlas(json)
             abstract = try map.object(forOptional: "abstract")
             urlString = try map.object(forOptional: "url")
-        } catch let e {
-            throw e
+        } catch let error {
+            throw error
         }
     }
 }

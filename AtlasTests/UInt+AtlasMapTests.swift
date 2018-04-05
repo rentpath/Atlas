@@ -53,23 +53,23 @@ class UInt_AtlasMapTests: XCTestCase {
     }
 
     func testUIntMappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try UInt(json: (json as AnyObject)["ui"]))
+        XCTAssertThrowsError(try UInt(json: (json as AnyObject)["ui"]))
     }
 
     func testUInt64MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try UInt64(json: (json as AnyObject)["ui64"]))
+        XCTAssertThrowsError(try UInt64(json: (json as AnyObject)["ui64"]))
     }
 
     func testUInt32MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try UInt32(json: (json as AnyObject)["ui32"]))
+        XCTAssertThrowsError(try UInt32(json: (json as AnyObject)["ui32"]))
     }
 
     func testUInt16MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try UInt16(json: (json as AnyObject)["ui16"]))
+        XCTAssertThrowsError(try UInt16(json: (json as AnyObject)["ui16"]))
     }
 
     func testUInt8MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try UInt8(json: (json as AnyObject)["ui8"]))
+        XCTAssertThrowsError(try UInt8(json: (json as AnyObject)["ui8"]))
     }
 
 }

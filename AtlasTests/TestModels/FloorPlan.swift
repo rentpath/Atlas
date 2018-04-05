@@ -34,8 +34,8 @@ extension FloorPlan: AtlasMap {
             sqft = try map.object(forOptional: "sqft")
             beds = try map.object(forOptional: "beds")
             baths = try map.object(forOptional: "baths")
-        } catch let e {
-            throw e
+        } catch let error {
+            throw error
         }
     }
 }

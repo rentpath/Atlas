@@ -15,8 +15,8 @@ class AtlasJSONArrayTests: XCTestCase {
         let users: [User]
         do {
             users = try Atlas(TestJSON.jsonArray as JSON).array()!
-        } catch let e {
-            XCTFail("Mapping error occurred: \(e)")
+        } catch let error {
+            XCTFail("Mapping error occurred: \(error)")
             return
         }
 
@@ -35,16 +35,16 @@ class AtlasJSONArrayTests: XCTestCase {
         var user: [User]?
         do {
             user = try Atlas(TestJSON.jsonArrayMissingKey as JSON).array()
-        } catch let e as MappingError {
-            switch e {
+        } catch let error as MappingError {
+            switch error {
             case let .keyNotInJSONError(_message):
                 message = _message
             default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+                XCTFail("Unexpected Mapping error occurred: \(error)")
                 return
             }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
+        } catch let error as NSError {
+            XCTFail("Unexpected error occurred: \(error)")
             return
         }
 
@@ -57,16 +57,16 @@ class AtlasJSONArrayTests: XCTestCase {
         var users: [User]?
         do {
             users = try Atlas(TestJSON.jsonArrayDifferentType as JSON).array()
-        } catch let e as MappingError {
-            switch e {
+        } catch let error as MappingError {
+            switch error {
             case let .notMappable(_message):
                 message = "User\(_message)"
             default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+                XCTFail("Unexpected Mapping error occurred: \(error)")
                 return
             }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
+        } catch let error as NSError {
+            XCTFail("Unexpected error occurred: \(error)")
             return
         }
 
@@ -79,16 +79,16 @@ class AtlasJSONArrayTests: XCTestCase {
         var user: [UserNoKey]?
         do {
             user = try Atlas(TestJSON.jsonArray as JSON).array()
-        } catch let e as MappingError {
-            switch e {
+        } catch let error as MappingError {
+            switch error {
             case let .keyNotInJSONError(error):
                 message = "User.\(error)"
             default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+                XCTFail("Unexpected Mapping error occurred: \(error)")
                 return
             }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
+        } catch let error as NSError {
+            XCTFail("Unexpected error occurred: \(error)")
             return
         }
         XCTAssert(user == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
@@ -100,16 +100,16 @@ class AtlasJSONArrayTests: XCTestCase {
         var user: [User]?
         do {
             user = try Atlas(TestJSON.user as JSON).array()
-        } catch let e as MappingError {
-            switch e {
+        } catch let error as MappingError {
+            switch error {
             case .notAnArray:
                 message = "NotAnArray"
             default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+                XCTFail("Unexpected Mapping error occurred: \(error)")
                 return
             }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
+        } catch let error as NSError {
+            XCTFail("Unexpected error occurred: \(error)")
             return
         }
 
@@ -121,8 +121,8 @@ class AtlasJSONArrayTests: XCTestCase {
         self.measure {
             do {
                 let _: [User]? = try Atlas(TestJSON.jsonArray as JSON).array()
-            } catch let e {
-                XCTFail("Mapping error occurred: \(e)")
+            } catch let error {
+                XCTFail("Mapping error occurred: \(error)")
             }
         }
     }

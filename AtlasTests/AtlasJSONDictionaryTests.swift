@@ -15,8 +15,8 @@ class AtlasJSONDictionaryTests: XCTestCase {
         let user: User
         do {
             user = try Atlas(TestJSON.user as JSON).object()!
-        } catch let e {
-            XCTFail("Unexpected Mapping error occurred: \(e)")
+        } catch let error {
+            XCTFail("Unexpected Mapping error occurred: \(error)")
             return
         }
 
@@ -48,16 +48,16 @@ class AtlasJSONDictionaryTests: XCTestCase {
         var user: User?
         do {
             user = try Atlas(TestJSON.jsonDictionaryDifferentType as JSON).object()
-        } catch let e as MappingError {
-            switch e {
+        } catch let error as MappingError {
+            switch error {
             case let .notMappable(_message):
                 message = "User\(_message)"
             default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+                XCTFail("Unexpected Mapping error occurred: \(error)")
                 return
             }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
+        } catch let error as NSError {
+            XCTFail("Unexpected error occurred: \(error)")
             return
         }
 
@@ -70,16 +70,16 @@ class AtlasJSONDictionaryTests: XCTestCase {
         var user: UserNoKey?
         do {
             user = try Atlas(TestJSON.user as JSON).object()
-        } catch let e as MappingError {
-            switch e {
+        } catch let error as MappingError {
+            switch error {
             case let .keyNotInJSONError(_message):
                 message = "User\(_message)"
             default:
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+                XCTFail("Unexpected Mapping error occurred: \(error)")
                 return
             }
-        } catch let e as NSError {
-            XCTFail("Unexpected error occurred: \(e)")
+        } catch let error as NSError {
+            XCTFail("Unexpected error occurred: \(error)")
             return
         }
 
@@ -92,8 +92,8 @@ class AtlasJSONDictionaryTests: XCTestCase {
         self.measure {
             do {
                 let _: [User] = try Atlas(TestJSON.users as JSON).array()!
-            } catch let e {
-                XCTFail("Unexpected Mapping error occurred: \(e)")
+            } catch let error {
+                XCTFail("Unexpected Mapping error occurred: \(error)")
             }
         }
         print("Time: \(Date().timeIntervalSince(before))")

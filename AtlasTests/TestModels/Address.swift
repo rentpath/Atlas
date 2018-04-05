@@ -34,8 +34,8 @@ extension Address: AtlasMap {
             city = try map.object(forOptional: "city")
             state = try map.object(forOptional: "state")
             zip = try map.object(forOptional: "zip")
-        } catch let e {
-            throw e
+        } catch let error {
+            throw error
         }
     }
 }
