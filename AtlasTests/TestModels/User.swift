@@ -44,8 +44,8 @@ extension User: AtlasMap {
             address = try map.object(forOptional: "address")
             photos = try map.array(forOptional: "photos")
             floorPlans = try map.array(forOptional: "floorplans")
-        } catch let e {
-            throw e
+        } catch let error {
+            throw error
         }
     }
 
@@ -81,8 +81,8 @@ extension UserNoKey: AtlasMap {
             avatarURL = try map.object(forOptional: "avatar")
             isActive = try map.object(for: "is_active")
             memberSince = try map.date(for: "member_since", to: .rfc3339)
-        } catch let e {
-            throw e
+        } catch let error {
+            throw error
         }
     }
 
