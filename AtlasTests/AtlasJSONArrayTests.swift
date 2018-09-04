@@ -71,7 +71,7 @@ class AtlasJSONArrayTests: XCTestCase {
         }
 
         XCTAssert(users == nil, "Received a valid User instance even though the expectation was that JSON parsing would fail")
-        XCTAssert(message == "User.phone - Unable to map Optional(2223334444) to type Int", "Error handling didn't return the proper error message. Received: \(message)")
+        XCTAssert(message == "User.phone - Unable to map Optional(2223334444) to type Int", "Error handling didn't return the proper error message. Received: \(message ?? "")")
     }
 
     func testNoMappingKeyProvidedInModelErrorHandling() {
