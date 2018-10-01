@@ -20,6 +20,7 @@
  * SOFTWARE.
  */
 
+//swiftlint:disable identifier_name
 public enum MappingError: Error {
 
     /**

@@ -22,6 +22,7 @@
 
 import Foundation
 
+//swiftlint:disable identifier_name
 public extension Date {
 
     public enum DateFormat {

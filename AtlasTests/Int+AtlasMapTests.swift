@@ -12,6 +12,11 @@ import XCTest
 class Int_AtlasMapTests: XCTestCase {
 
     var json: JSON!
+    let i: Int = 0
+    let i8: Int8 = 0
+    let i16: Int16 = 0
+    let i32: Int32 = 0
+    let i64: Int64 = 0
 
     override func setUp() {
         super.setUp()
@@ -28,7 +33,7 @@ class Int_AtlasMapTests: XCTestCase {
             "i64": NSNumber(value: i64 as Int64)
         ]
         let data = try! JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
-        json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as JSON!
+        json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as JSON
     }
 
     override func tearDown() {
@@ -55,23 +60,23 @@ class Int_AtlasMapTests: XCTestCase {
     }
 
     func testIntMappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int(json: (json as AnyObject)["i"]))
+        XCTAssertGreaterThan(try Int(json: (json as AnyObject)["i"] ?? i)!, i)
     }
 
     func testInt64MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int64(json: (json as AnyObject)["i64"]))
+        XCTAssertGreaterThan(try Int64(json: (json as AnyObject)["i64"] ?? i64)!, i64)
     }
 
     func testInt32MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int32(json: (json as AnyObject)["i32"]))
+        XCTAssertGreaterThan(try Int32(json: (json as AnyObject)["i32"] ?? i32)!, i32)
     }
 
     func testInt16MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int16(json: (json as AnyObject)["i16"]))
+        XCTAssertGreaterThan(try Int16(json: (json as AnyObject)["i16"] ?? i16)!, i16)
     }
 
     func testInt8MappingThrowsErrorIfUnableToMap() {
-        XCTAssertNotNil(try Int8(json: (json as AnyObject)["i8"]))
+        XCTAssertGreaterThan(try Int8(json: (json as AnyObject)["i8"] ?? i8)!, i8)
     }
 
 }
