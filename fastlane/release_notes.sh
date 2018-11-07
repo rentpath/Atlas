@@ -57,9 +57,9 @@ echo "$RELEASE_NOTES" |
                     STORY_TYPES=$(echo $STORY_TYPES, $TMP_STORY_TYPE)
                 fi
                 if [ -z "$STORY_LINKS" ]; then
-                	STORY_LINKS=$(echo "[${array[i]}](https://rentpath.atlassian.net/rest/api/2/issue/${array[i]})")
+                	STORY_LINKS=$(echo "[${array[i]}](https://rentpath.atlassian.net/browse/${array[i]})")
                 else
-                	STORY_LINKS=$(echo "$STORY_LINKS, [${array[i]}](https://rentpath.atlassian.net/rest/api/2/issue/${array[i]})")
+                	STORY_LINKS=$(echo "$STORY_LINKS, [${array[i]}](https://rentpath.atlassian.net/browse/${array[i]})")
                 fi
             fi
         done
