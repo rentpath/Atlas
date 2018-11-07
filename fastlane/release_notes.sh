@@ -30,13 +30,15 @@ echo "$RELEASE_NOTES" |
         COMMIT_HASH=$(echo "$line" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["commit_hash"]')
         AUTHOR_NAME=$(echo "$line" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["author_name"]')
         SUBJECT=$(echo "$line" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["subject"]')
-        #Strip Owner Information
-        SUBJECT=$(echo "$SUBJECT" | sed -E 's/^\[([A-Z]|,|\/|\\|[ ])*\][ ]*//' | sed 's/\[NOSTORY\][ ]*//')
-        STORIES=$(echo "$SUBJECT" | sed -E 's/.*\[(([0-9]|,|\/|\\|[ ]|#)*)\].*/\1/' | sed 's/#//g' | sed -E 's/(,|[ ]|\\|\/)/;/g' | sed -E 's/([a-zA-Z]|\.)//g')
+    	#Strip Owner Information
+        SUBJECT=$(echo "$SUBJECT" | sed -E 's/^\[([A-Z]|,|\/|\\|[ ])*\][ ]*//' | sed 's/\[NOCARD\][ ]*//')
+        STORIES=$(echo "$SUBJECT" |  sed 's/.*\[\([^]]*\)\].*/\1/g' | sed 's/#//g' | sed -E 's/(,|[ ]|\\|\/)/;/g')
         STORIES=$(echo "${STORIES//\*}")
+        
         echo "STORIES=$STORIES"
-        #Strip Story information
-        SUBJECT=$(echo "$SUBJECT" | sed -E 's/(.*)\[(([0-9]|,|\/|\\|[ ]|#)*)\][ ]*(.*)/\1\4/')
+        # Strip Card information
+        SUBJECT=$(echo "$SUBJECT" | sed -E 's/(.*)\[(([a-zA-Z]|-|[0-9]|,|\/|\\|[ ]|#)*)\][ ]*(.*)/\1\4/')
+
         NOTES_LINE=$(echo "$NOTES_LINE[$ABBREVIATED_COMMIT_HASH](https://github.com/$ORGANIZATION/$REPOSITORY/commit/$COMMIT_HASH)|$AUTHOR_NAME")
         
         STORY_LINKS=""
@@ -45,19 +47,19 @@ echo "$RELEASE_NOTES" |
         for i in "${!array[@]}"
         do
             echo "$i=>${array[i]}"
-            echo curl -H "Authorization: Basic $LEANKIT_TOKEN" -H "Content-Type: application/json" "https://rentpath.leankit.com/io/card/${array[i]}"
-            LEANKIT_RESPONSE=$(curl -H "Authorization: Basic $LEANKIT_TOKEN" -H "Content-Type: application/json" "https://rentpath.leankit.com/io/card/${array[i]}")
-            if [ -n "$LEANKIT_RESPONSE" ]; then
+            echo curl -H "Authorization: Basic $JIRA_TOKEN" -H "Content-Type: application/json" -X GET "https://rentpath.atlassian.net/rest/api/2/issue/${array[i]}"
+            JIRA_RESPONSE=$(curl -H "Authorization: Basic $JIRA_TOKEN" -H "Content-Type: application/json" -X GET "https://rentpath.atlassian.net/rest/api/2/issue/${array[i]}")
+            if [ -n "$JIRA_RESPONSE" ]; then
                 if [ -z "$STORY_TYPES" ]; then
-                    STORY_TYPES=$(echo "$LEANKIT_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["type"]["title"]')
+                    STORY_TYPES=$(echo "$JIRA_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["fields"]["issuetype"]["name"]')
                 else
-                    TMP_STORY_TYPE=$(echo "$LEANKIT_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["type"]["title"]')
+                    TMP_STORY_TYPE=$(echo "$JIRA_RESPONSE" | python -c 'import json,sys;obj=json.load(sys.stdin);print obj["fields"]["issuetype"]["name"]')
                     STORY_TYPES=$(echo $STORY_TYPES, $TMP_STORY_TYPE)
                 fi
                 if [ -z "$STORY_LINKS" ]; then
-                	STORY_LINKS=$(echo "[${array[i]}](https://rentpath.leankit.com/card/${array[i]})")
+                	STORY_LINKS=$(echo "[${array[i]}](https://rentpath.atlassian.net/rest/api/2/issue/${array[i]})")
                 else
-                	STORY_LINKS=$(echo "$STORY_LINKS, [${array[i]}](https://rentpath.leankit.com/card/${array[i]})")
+                	STORY_LINKS=$(echo "$STORY_LINKS, [${array[i]}](https://rentpath.atlassian.net/rest/api/2/issue/${array[i]})")
                 fi
             fi
         done
