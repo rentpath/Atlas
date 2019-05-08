@@ -31,7 +31,7 @@ public extension Dictionary {
      - Returns: Dictionary with null values removed
      
      */
-    public func cleaned() -> Dictionary {
+    func cleaned() -> Dictionary {
         var cleanedDict = [Key: Value]()
         for val in self {
             switch val.1 {

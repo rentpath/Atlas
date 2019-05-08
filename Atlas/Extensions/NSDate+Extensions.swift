@@ -25,7 +25,7 @@ import Foundation
 //swiftlint:disable identifier_name
 public extension Date {
 
-    public enum DateFormat {
+    enum DateFormat {
         case rfc3339, iso8601, custom(String)
     }
 
@@ -44,7 +44,7 @@ public extension Date {
      - returns String date with RFC3339 format
      
      */
-    public func toRFC3339String() -> String {
+    func toRFC3339String() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
         return formatter.string(from: self)
@@ -57,7 +57,7 @@ public extension Date {
      - returns String date with RFC3339 format
      
      */
-    public func toISO8601String() -> String {
+    func toISO8601String() -> String {
         let formatter = Static.formatter
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.S'Z'"
         return formatter.string(from: self)
@@ -72,7 +72,7 @@ public extension Date {
      - Returns: An Optional NSDate
      
      */
-    public static func dateFromRFC3339String(_ string: String) -> Date? {
+    static func dateFromRFC3339String(_ string: String) -> Date? {
         return dateFromString(string, withFormat: .rfc3339)
     }
 
@@ -87,7 +87,7 @@ public extension Date {
      - Returns: NSDate after converting dateString
      
      */
-    public static func dateFromString(_ dateString: String, withFormat format: DateFormat) -> Date? {
+    static func dateFromString(_ dateString: String, withFormat format: DateFormat) -> Date? {
         let formatter = Static.formatter
         switch format {
         case .rfc3339, .iso8601:
