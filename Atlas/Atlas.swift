@@ -68,6 +68,14 @@ open class Atlas {
             throw error
         }
     }
+    
+    open func dictObject<T: AtlasMap,U: AtlasMap>(forOptional key: String) throws -> [U:[T]]?  {
+        do {
+            return try executor.dicArray(forOptional: key, from: jsonObject)
+        } catch {
+            throw error
+        }
+    }
 
     /////////////////////////////////////////////////////
     // MARK: - Required Sub-object mapping - key required

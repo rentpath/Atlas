@@ -49,6 +49,8 @@ public protocol AtlasMapExecutor {
      */
     func object<T: AtlasMap>(forOptional key: String, from json: [String: JSON]?) throws -> T?
 
+    
+    func dicArray<T: AtlasMap,U: AtlasMap>(forOptional key: String, from json: [String: JSON]?) throws -> [U:[T]]?
     /**
      Used to map the value of `key` within `json` to an instance of `[T]`
      */

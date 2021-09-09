@@ -22,8 +22,34 @@
 
 open class AtlasMappingExecutor: AtlasMapExecutor {
 
+    
+
     public init() {
 
+    }
+    public func dicArray<T, U>(forOptional key: String, from json: [String : JSON]?) throws -> [U : [T]]? where T : AtlasMap, U : AtlasMap, U : Hashable {
+        guard let unwrappedVal = json?[key] as? [String: [JSON]] else {
+         return nil
+        }
+        var dictObj = [U:[T]]()
+        for (value,dict) in unwrappedVal  {
+            var array = [T]()
+            print(value)
+            print(dict)
+            guard let valueObj = try U.init(json: value) else {
+                throw MappingError.notMappable(".\(key) - Unable to map  to type \(T.self)")
+            }
+            for obj in dict {
+                guard let mappedObj = try T.init(json: obj) else {
+                    throw MappingError.notMappable(".\(key) - Unable to map  to type \(T.self)")
+                }
+
+                array.append(mappedObj)
+            }
+            dictObj[valueObj] = array
+        }
+        print(unwrappedVal)
+        return dictObj
     }
 
     open func object<T: AtlasMap>(_ object: [String: JSON]?) throws -> T? {
