@@ -48,10 +48,20 @@ open class AtlasMappingExecutor: AtlasMapExecutor {
             }
             dictObj[valueObj] = array
         }
-        print(unwrappedVal)
         return dictObj
     }
 
+    open func dicObject<T, U>(forOptional key: String, from json: JSON?) throws -> [U: T]? where T : AtlasMap,U : AtlasMap,U : Hashable {
+        guard let unwrappedVal = json as? [String: [U: T]] else {
+            return nil
+        }
+        var dictObj = [U: T]()
+        for (_, dict) in unwrappedVal {
+            dictObj = dict
+        }
+        return dictObj
+    }
+    
     open func object<T: AtlasMap>(_ object: [String: JSON]?) throws -> T? {
         guard let unwrappedVal = object else {
             throw MappingError.genericMappingError
